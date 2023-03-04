@@ -1,0 +1,228 @@
+
+#merge features tables and represent sequences
+qiime feature-table merge \
+  --i-tables ENA_PRJEB40506/ENA_PRJEB40506-dada2-table.qza \
+  --i-tables ENA_PRJEB25188/ENA_PRJEB25188-dada2-table.qza \
+  --i-tables NCBI_PRJEB36731/NCBI_PRJEB36731-dada2-table.qza \
+  --i-tables ENA_PRJEB18117/ENA_PRJEB18117-dada2-table.qza \
+  --i-tables NCBI_SRP044372/NCBI_SRP044372-dada2-table.qza \
+  --i-tables NCBI_SRS476588/NCBI_SRS476588-dada2-table.qza \
+  --i-tables ENA_PRJEB30970/ENA_PRJEB30970-dada2-table.qza \
+  --i-tables tibet-data/tibet-sequences-dada2-table.qza \
+  --o-merged-table thermokarst-lakes-table.qza
+
+
+qiime feature-table merge-seqs \
+  --i-data ENA_PRJEB40506/ENA_PRJEB40506-dada2-rep-seqs.qza \
+  --i-data ENA_PRJEB25188/ENA_PRJEB25188-dada2-rep-seqs.qza \
+  --i-data NCBI_PRJEB36731/NCBI_PRJEB36731-dada2-rep-seqs.qza \
+  --i-data ENA_PRJEB18117/ENA_PRJEB18117-dada2-rep-seqs.qza \
+  --i-data NCBI_SRP044372/NCBI_SRP044372-dada2-rep-seqs.qza \
+  --i-data NCBI_SRS476588/NCBI_SRS476588-dada2-rep-seqs.qza \
+  --i-data ENA_PRJEB30970/ENA_PRJEB30970-dada2-rep-seqs.qza \
+  --i-data tibet-data/tibet-sequences-dada2-rep-seqs.qza \
+  --o-merged-data thermokarst-lakes-rep-seqs.qza
+
+
+#物种注释
+#导入序列和分类文件
+qiime tools import \
+--type 'FeatureData[Sequence]' \
+--input-path silva132_99_16s/silva_132_99_16S.fna \
+--output-path silva132_99_16s/ref_silva_132_99_seqs_16S.qza
+
+
+qiime tools import \
+--type 'FeatureData[Taxonomy]' \
+--input-format HeaderlessTSVTaxonomyFormat \
+--input-path silva132_99_16s/majority_taxonomy_7_levels.txt \
+--output-path silva132_99_16s/ref_silva132_99_16s_otus_taxonomy.qza
+
+
+#Closed-reference clustering
+qiime vsearch cluster-features-closed-reference \
+  --i-table thermokarst-lakes-table.qza \
+  --i-sequences thermokarst-lakes-rep-seqs.qza \
+  --i-reference-sequences silva132_99_16s/ref_silva_132_99_seqs_16S.qza \
+  --p-perc-identity 0.97 \
+  --o-clustered-table results/thermokarst-lakes-table-97.qza \
+  --o-clustered-sequences results/thermokarst-lakes-rep-seqs-97.qza \
+  --o-unmatched-sequences results/thermokarst-lakes-rep-seqs-unmatched-97.qza \
+  --verbose
+  
+
+#Constructing phylogenetic tree
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences results/thermokarst-lakes-rep-seqs-97.qza \
+  --o-alignment results/tree/aligned-thermokarst-lakes-rep-seqs-97.qza \
+  --o-masked-alignment results/tree/masked-aligned-thermokarst-lakes-rep-seqs-97.qza \
+  --o-tree results/tree/thermokarst-lakes-unrooted-tree-dn-97.qza \
+  --o-rooted-tree results/tree/thermokarst-lakes-rooted-tree-dn-97.qza \
+  --verbose
+
+
+
+#Train the classifier
+qiime feature-classifier fit-classifier-naive-bayes \
+  --i-reference-reads silva132_99_16s/ref_silva_132_99_seqs_16S.qza \
+  --i-reference-taxonomy silva132_99_16s/ref_silva132_99_16s_otus_taxonomy.qza \
+  --o-classifier silva132_99_16s/classifier_Silva_132_99.qza #改成138
+
+  
+#=== Test the classifier ====
+qiime feature-classifier classify-sklearn \
+  --i-classifier silva132_99_16s/classifier_Silva_132_99.qza \
+  --i-reads results/thermokarst-lakes-rep-seqs-97.qza \
+  --o-classification results/thermokarst-lakes-dn-97-taxonomy.qza  #改成138
+
+
+#=== Test the classifier ====
+qiime feature-classifier classify-sklearn \
+  --i-classifier SILVA-138-SSURef-full-length-classifier.qza \
+  --i-reads results/thermokarst-lakes-rep-seqs-97.qza \
+  --o-classification results/thermokarst-lakes-dn-97-taxonomy.qza
+
+ 
+
+#===========	otu table filter	===============
+
+mkdir -p results/filter_data
+
+cd results
+qiime feature-table summarize \
+--i-table thermokarst-lakes-table-97.qza \
+--o-visualization thermokarst-lakes-table-97.qzv
+
+
+
+###Remove chloroplast and mitochondria:   
+qiime taxa filter-table \
+--i-table thermokarst-lakes-table-97.qza \
+--i-taxonomy thermokarst-lakes-dn-97-taxonomy.qza \
+--p-exclude mitochondria,chloroplast \
+--o-filtered-table filter_data/thermokarst-lakes-table-nomito-nochloro.qza
+
+
+###remove feature frequency less than 10
+
+qiime feature-table filter-features \
+--i-table filter_data/thermokarst-lakes-table-nomito-nochloro.qza \
+--p-min-frequency 10 \
+--o-filtered-table filter_data/thermokarst-lakes-table-nomito-nochloro-frequency10.qza
+
+qiime feature-table summarize \
+--i-table filter_data/thermokarst-lakes-table-nomito-nochloro-frequency10.qza \
+--o-visualization filter_data/thermokarst-lakes-table-nomito-nochloro-frequency10.qzv
+
+# minum frequency is 1070
+
+
+
+
+#=========	Rarefaction	===============
+qiime feature-table rarefy \
+--i-table filter_data/thermokarst-lakes-table-nomito-nochloro-frequency10.qza \
+--p-sampling-depth 1070 \
+--o-rarefied-table filter_data/table-filtered-rarefy.qza
+
+
+#=====	Export data =========
+mkdir data_from_qiime2
+mkdir -p filter_data/data_from_qiime2_unrarefied
+qiime tools export \
+--input-path filter_data/table-filtered-rarefy.qza \
+--output-path filter_data/data_from_qiime2
+
+# Convert biom format to tab-separated text format:
+biom convert \
+-i filter_data/data_from_qiime2/feature-table.biom \
+-o filter_data/data_from_qiime2/otu_table.tsv \
+--to-tsv
+
+
+# Export representative sequences:
+qiime tools export \
+--input-path thermokarst-lakes-rep-seqs-97.qza \
+--output-path filter_data/data_from_qiime2
+
+# Export taxonomy table:
+qiime tools export \
+--input-path thermokarst-lakes-dn-97-taxonomy.qza \
+--output-path filter_data/data_from_qiime2
+
+# Export tree file:
+qiime tools export \
+--input-path tree/thermokarst-lakes-rooted-tree-dn-97.qza \
+--output-path filter_data/data_from_qiime2
+
+
+#=====	Export unrarefied data =========
+mkdir -p filter_data/data_from_qiime2_unrarefied
+qiime tools export \
+--input-path filter_data/thermokarst-lakes-table-nomito-nochloro-frequency10.qza \
+--output-path filter_data/data_from_qiime2_unrarefied
+
+# Convert biom format to tab-separated text format:
+biom convert \
+-i filter_data/data_from_qiime2_unrarefied/feature-table.biom \
+-o filter_data/data_from_qiime2_unrarefied/otu_table.tsv \
+--to-tsv
+
+
+# Export representative sequences:
+qiime tools export \
+--input-path thermokarst-lakes-rep-seqs-97.qza \
+--output-path filter_data/data_from_qiime2_unrarefied
+
+# Export taxonomy table:
+qiime tools export \
+--input-path thermokarst-lakes-dn-97-taxonomy.qza \
+--output-path filter_data/data_from_qiime2_unrarefied
+
+# Export tree file:
+qiime tools export \
+--input-path tree/thermokarst-lakes-rooted-tree-dn-97.qza \
+--output-path filter_data/data_from_qiime2_unrarefied
+
+
+
+
+
+#close the qiime2
+conda deactivate
+
+
+
+
+
+
+qiime tools import \
+--type 'FeatureData[Sequence]' \
+--input-path meta_data/meta_ref_seqs.fasta \
+--output-path meta_data/meta_ref_99_OTU_seqs_16S.qza
+
+wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml
+conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml
+# OPTIONAL CLEANUP
+rm qiime2-2019.10-py36-linux-conda.yml
+ 
+wget -c https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/nucl_gb.accession2taxid.gz
+
+wget https://data.qiime2.org/distro/core/qiime2-2019.1-py38-linux-conda.yml
+
+
+
+psftp> put E:/QIIME2/Silva/Full_Length/ver_0.02/SILVA-138-SSURef-full-length-classifier.qza ./meta-analysis/meta_data/SILVA-138-SSURef-full-length-classifier.qza
+local:E:/QIIME2/Silva/Full_Length/ver_0.02/SILVA-138-SSURef-full-length-classifier.qza => remote:/home/data/ibcas_share/meta-analysis/meta_data/SILVA-138-SSURef-full-length-classifier.qza
+psftp> put E:/thermokast_lakes/water_microbes/meta_analysis/data/meta_data/meta_ref_seqs.fasta ./meta-analysis/meta_ref_seqs.fasta
+local:E:/thermokast_lakes/water_microbes/meta_analysis/data/meta_data/meta_ref_seqs.fasta => remote:/home/data/ibcas_share/meta-analysis/meta_ref_seqs.fasta
+
+
+put -r E:/sequence_data/thermokarst_lakes/lakeshores/MGQS-BJ-20210802-00001_P-20210726-000221/XQ-20210726-00054/bacteria_V4_1/qualified/ /home/data/ibcas_share/meta-analysis/meta_data/lakeshors/
+
+put E:/thermokast_lakes/water_microbes/meta_analysis/data/meta_data/meta_ref_99_OTU_seqs_16S.qza /data01/.kly/meta_data_138/meta_ref_99_OTU_seqs_16S.qza
+put E:/QIIME2/Silva/Full_Length/ver_0.02/SILVA-138-SSURef-full-length-classifier.qza /data01/.kly/meta_data_138/SILVA-138-SSURef-full-length-classifier.qza
+
+get /data01/.kly/meta_data_138/taxonomy.tsv E:/thermokast_lakes/water_microbes/meta_analysis/data/meta_data/taxonomy.tsv 
+
+scp ibcas_share@192.168.70.98:/home/data/ibcas_share/meta-analysis/meta_data/ENA_PRJEB30970/ENA_PRJEB30970-dada2-table350.qzv /mnt/e/QIIME2/meta-analysis/meta-data/ENA_PRJEB30970/ENA_PRJEB30970-dada2-table350.qzv
