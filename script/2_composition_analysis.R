@@ -76,11 +76,12 @@ pie_for_otu_num_phylum
 
 # determine the Order compositions within top 10 phyla
 arrange.tab <- function(phylo, N, taxrank, vect) {
-  phylo.rel <- microbiome::transform(phylo, "compositional")
-  ra.tab <- otu_table(phylo.rel)
+  subphylo <- tax_glom(phylo, taxrank)
+  subphylo.rel <- microbiome::transform(subphylo, "compositional")
+  ra.tab <- otu_table(subphylo.rel)
   MRA <- rowMeans(ra.tab)
-  group <- tax_table(subphylo.rel)[, vect]
-  mra.tab <- data.frame(group, MRA)
+  group <- tax_table(subphylo.rel)[,vect]
+  mra.tab <- data.frame(group,MRA)
   colnames(mra.tab) <- c('level1', 'level2', 'MRA')
   #arrange the class table
   mra.tab_level1 = mra.tab %>% group_by(level1) %>% 
