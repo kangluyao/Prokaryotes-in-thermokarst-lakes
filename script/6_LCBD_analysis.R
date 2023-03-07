@@ -130,7 +130,7 @@ env_div_agg_meta <-  env_div %>%
 library(randomForest)
 library(rfPermute)
 env_div_rf <- env_div %>%
-  dplyr::select(c('LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
 meta.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree=999, num.rep = 100,
                      importance=TRUE, na.action=na.omit)
@@ -180,7 +180,7 @@ meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
 ## random forest analysis for Tibetan Plateau
 env_div_rf <- env_div %>%
   filter(Region == 'Tibetan Plateau') %>%
-  dplyr::select(c('LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
 tp.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree = 999, num.rep = 100,
                      importance = TRUE, na.action = na.omit)
@@ -212,7 +212,7 @@ impor_tp_plot <- impor.dat %>%
 ## random forest analysis for Pan-Arctic
 env_div_rf <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
-  dplyr::select(c('LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
 pa.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree = 999, num.rep = 100,
                      importance = TRUE, na.action = na.omit)

@@ -3,7 +3,7 @@ setwd('E:/thermokast_lakes/water_microbes/')
 # loading packages
 PKGs <- c('ggplot2', 'ape', 'Biostrings', 'vegan', 'tidyverse',
           'reshape', 'cowplot', 'microbiome', 'RColorBrewer',
-          'ggpubr', 'dplyr')
+          'ggpubr', 'dplyr', 'phyloseq')
 
 lapply(PKGs, require, character.only = TRUE, warn.conflicts = FALSE)
 
