@@ -1,6 +1,6 @@
 # test the difference of the environmental factors between TP and PA
 ##standard error function
-stderr <- function(x, na.rm=FALSE) {
+stderr <- function(x, na.rm = FALSE) {
   if (na.rm) x <- na.omit(x)
   sqrt(var(x)/length(x))
 }
