@@ -176,6 +176,43 @@ meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75))
+# check the spatial autocorrelation
+
+#determine the distance matrix
+env_div_rf <- na.omit(env_div_rf)
+library(geodist)
+x <- tibble::tibble (x = env_div_rf$longitude,
+                     y = env_div_rf$latitude)
+distance_matrix <- geodist (x)/100000
+
+#names of the response variable and the predictors
+dependent.variable.name <- "LCBD"
+predictor.variable.names <- colnames(env_div_rf)[4:9]
+
+#coordinates of the cases
+xy <- env_div_rf[, c('longitude', 'latitude')]
+
+#distance matrix
+distance.matrix <- distance_matrix
+
+#distance thresholds (same units as distance_matrix)
+distance.thresholds <- c(0, 10, 50, 100, 150, 180)
+
+#random seed for reproducibility
+random.seed <- 1
+#Fitting a non-spatial Random Forest model with rf()
+model.spatial <- spatialRF::rf_spatial(
+  data = env_div_rf,
+  dependent.variable.name = dependent.variable.name,
+  predictor.variable.names = predictor.variable.names,
+  distance.matrix = distance.matrix,
+  distance.thresholds = distance.thresholds,
+  xy = xy, #not needed by rf, but other functions read it from the model
+  seed = random.seed,
+  verbose = FALSE
+)
+#shows the Moran’s I of the residuals of the spatial model
+Moran_residual_plot_NH <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 
 ## random forest analysis for Tibetan Plateau
 env_div_rf <- env_div %>%
@@ -208,7 +245,41 @@ impor_tp_plot <- impor.dat %>%
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
   coord_flip()
+# check the spatial autocorrelation
+#determine the distance matrix
+library(geodist)
+x <- tibble::tibble (x = env_div_rf$longitude,
+                     y = env_div_rf$latitude)
+distance_matrix <- geodist (x)/100000
 
+#names of the response variable and the predictors
+dependent.variable.name <- "LCBD"
+predictor.variable.names <- colnames(env_div_rf)[4:9]
+
+#coordinates of the cases
+xy <- env_div_rf[, c('longitude', 'latitude')]
+
+#distance matrix
+distance.matrix <- distance_matrix
+
+#distance thresholds (same units as distance_matrix)
+distance.thresholds <- c(0, 1, 2, 4, 8, 11)
+
+#random seed for reproducibility
+random.seed <- 1
+#Fitting a non-spatial Random Forest model with rf()
+model.spatial <- spatialRF::rf_spatial(
+  data = env_div_rf,
+  dependent.variable.name = dependent.variable.name,
+  predictor.variable.names = predictor.variable.names,
+  distance.matrix = distance.matrix,
+  distance.thresholds = distance.thresholds,
+  xy = xy, #not needed by rf, but other functions read it from the model
+  seed = random.seed,
+  verbose = FALSE
+)
+#shows the Moran’s I of the residuals of the spatial model
+Moran_residual_plot_TP <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 ## random forest analysis for Pan-Arctic
 env_div_rf <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
@@ -240,6 +311,42 @@ impor_pa_plot <- impor.dat %>%
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
   coord_flip()
+# check the spatial autocorrelation
+#determine the distance matrix
+env_div_rf <- na.omit(env_div_rf)
+library(geodist)
+x <- tibble::tibble (x = env_div_rf$longitude,
+                     y = env_div_rf$latitude)
+distance_matrix <- geodist (x)/100000
+
+#names of the response variable and the predictors
+dependent.variable.name <- "LCBD"
+predictor.variable.names <- colnames(env_div_rf)[4:9]
+
+#coordinates of the cases
+xy <- env_div_rf[, c('longitude', 'latitude')]
+
+#distance matrix
+distance.matrix <- distance_matrix
+
+#distance thresholds (same units as distance_matrix)
+distance.thresholds <- c(0, 10, 20, 40, 80, 130)
+
+#random seed for reproducibility
+random.seed <- 1
+#Fitting a non-spatial Random Forest model with rf()
+model.spatial <- spatialRF::rf_spatial(
+  data = env_div_rf,
+  dependent.variable.name = dependent.variable.name,
+  predictor.variable.names = predictor.variable.names,
+  distance.matrix = distance.matrix,
+  distance.thresholds = distance.thresholds,
+  xy = xy, #not needed by rf, but other functions read it from the model
+  seed = random.seed,
+  verbose = FALSE
+)
+#shows the Moran’s I of the residuals of the spatial model
+Moran_residual_plot_PA <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 ## Show "importance" of variables: higher value mean more important:
 mean(meta.lcbd.rf$rf$rsq)
 sd(meta.lcbd.rf$rf$rsq)
@@ -261,7 +368,12 @@ rf_plot
 #ggsave(rf_plot, file = "./meta_analysis/results/figs/rf_plot.pdf",
 #       width = 13, height = 6, units = 'in', device='pdf', dpi=300)
 
-
+Moran_residual_plot <- cowplot::plot_grid(Moran_residual_plot_NH, 
+                                          Moran_residual_plot_TP, 
+                                          Moran_residual_plot_PA,
+                                          labels = c('A', 'B', 'C'), ncol = 1, 
+                                          label_x = .01, label_y = 1, 
+                                          hjust = 0, label_size = 14, align = "v")
 #alpine dataset analysis
 
 ## read tibet plateau dataset
