@@ -132,47 +132,47 @@ library(rfPermute)
 env_div_rf <- env_div %>%
   dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
-meta.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree=999, num.rep = 100,
-                     importance=TRUE, na.action=na.omit)
+meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree=999, num.rep = 999,
+                     importance = TRUE, na.action = na.omit)
 
 impor.dat <-data.frame(variables = rownames(importance(meta.lcbd.rf)), 
-                       IncMSE=importance(meta.lcbd.rf)[,1])
+                       IncMSE = importance(meta.lcbd.rf)[,1])
 library(dplyr)
 impor_meta_plot <- impor.dat %>% 
   arrange(IncMSE)  %>%
-  mutate(variables=factor(variables, levels=variables)) %>%
+  mutate(variables = factor(variables, levels=variables)) %>%
   ggplot(aes(x = variables, y = IncMSE)) +
-  geom_bar(stat="identity", fill= rev(c("#da5724", '#3b86bc', '#915c83', '#eb8f70', '#c6dfed', '#f4c2c2')),
-           colour=NA, width = 0.50) +
+  geom_bar(stat = "identity", fill = rev(c("#da5724", '#3b86bc', '#915c83', '#eb8f70', '#c6dfed', '#f4c2c2')),
+           colour = NA, width = 0.50) +
   scale_y_continuous(expand = c(0,0), limits = c(0, 63)) +
   ylab('Increases in MSE (%)') + xlab(NULL) +
   theme_classic() +
   theme(panel.border = element_rect(colour = "black", size=0.5, fill=NA),
-        panel.grid=element_blank(), 
-        axis.title = element_text(color='black',size=14),
-        axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color='black'),
-        axis.text.y = element_text(colour='black',size=12),
-        axis.text.x = element_text(colour='black', size =12),
+        panel.grid = element_blank(), 
+        axis.title = element_text(color='black',size = 14),
+        axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color = 'black'),
+        axis.text.y = element_text(colour='black',size = 12),
+        axis.text.x = element_text(colour='black', size = 12),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
   coord_flip()
 
 meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
-  geom_point(aes(color = Sitegroup), size=1, alpha=0.8)+
+  geom_point(aes(color = Sitegroup), size = 1, alpha = 0.8)+
   scale_color_manual(values = c("#a58aff", '#c49a00', '#c6dfed', 
                                 '#00c094', '#3b86bc', '#eb8f70', '#fb61d7')) +
-  geom_smooth(method="lm", formula = y ~ poly(x, 2),
-              size=1, se=T, colour='black') +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2),
+              size = 1, se = T, colour = 'black') +
   xlab('MAP (mm)') + ylab('LCBD') +
   theme_bw() +
-  theme(panel.border = element_rect(colour = "black", size=0.5, fill=NA),
+  theme(panel.border = element_rect(colour = "black", size = 0.5, fill = NA),
         panel.grid = element_blank(), 
-        axis.title = element_text(color='black',size=14),
-        axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color='black'),
+        axis.title = element_text(color = 'black',size = 14),
+        axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color = 'black'),
         axis.line = element_blank(), 
-        axis.text.y = element_text(colour='black',size=12),
-        axis.text.x = element_text(colour='black', size = 12),
+        axis.text.y = element_text(colour = 'black',size = 12),
+        axis.text.x = element_text(colour = 'black', size = 12),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75))
@@ -219,28 +219,28 @@ env_div_rf <- env_div %>%
   filter(Region == 'Tibetan Plateau') %>%
   dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
-tp.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree = 999, num.rep = 100,
+tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 
-impor.dat <-data.frame(variables = rownames(importance(tp.lcbd.rf)), 
-                       IncMSE=importance(tp.lcbd.rf)[,1])
+impor.dat <- data.frame(variables = rownames(importance(tp.lcbd.rf)), 
+                       IncMSE = importance(tp.lcbd.rf)[,1])
 
 library(dplyr)
 impor_tp_plot <- impor.dat %>% 
   arrange(IncMSE)  %>%
   mutate(variables=factor(variables, levels = variables)) %>%
   ggplot(aes(x = variables, y = IncMSE)) +
-  geom_bar(stat="identity", fill= rev(c("#da5724", '#3b86bc', '#c6dfed', '#eb8f70', '#f4c2c2', '#915c83')),
-           colour=NA, width = 0.50) +
+  geom_bar(stat = "identity", fill = rev(c("#da5724", '#3b86bc', '#c6dfed', '#eb8f70', '#f4c2c2', '#915c83')),
+           colour = NA, width = 0.50) +
   scale_y_continuous(expand = c(0,0), limits = c(0, 50)) +
   ylab('Increases in MSE (%)') + xlab(NULL) +
   theme_classic() +
   theme(panel.border = element_rect(colour = "black", size=0.5, fill=NA),
-        panel.grid=element_blank(), 
-        axis.title = element_text(color='black',size=14),
+        panel.grid = element_blank(), 
+        axis.title = element_text(color='black',size = 14),
         axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color = 'black'),
-        axis.text.y = element_text(colour='black',size=12),
-        axis.text.x = element_text(colour='black', size =12),
+        axis.text.y = element_text(colour = 'black',size = 12),
+        axis.text.x = element_text(colour = 'black', size = 12),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
@@ -285,7 +285,7 @@ env_div_rf <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
   dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
-pa.lcbd.rf <- rfPermute(LCBD ~ ., data = env_div_rf, ntree = 999, num.rep = 100,
+pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 
 impor.dat <-data.frame(variables = rownames(importance(pa.lcbd.rf)), 
@@ -297,16 +297,16 @@ impor_pa_plot <- impor.dat %>%
   mutate(variables=factor(variables, levels = variables)) %>%
   ggplot(aes(x = variables, y = IncMSE)) +
   geom_bar(stat="identity", fill= rev(c('#eb8f70', "#da5724", '#3b86bc', '#915c83',  '#c6dfed', '#f4c2c2')),
-           colour=NA, width = 0.50) +
+           colour = NA, width = 0.50) +
   scale_y_continuous(expand = c(0,0), limits = c(0, 50)) +
   ylab('Increases in MSE (%)') + xlab(NULL) +
   theme_classic() +
-  theme(panel.border = element_rect(colour = "black", size=0.5, fill=NA),
+  theme(panel.border = element_rect(colour = "black", size = 0.5, fill = NA),
         panel.grid=element_blank(), 
-        axis.title = element_text(color='black',size=14),
+        axis.title = element_text(color = 'black', size = 14),
         axis.ticks.length = unit(0.2,"lines"), axis.ticks = element_line(color = 'black'),
-        axis.text.y = element_text(colour = 'black',size = 12),
-        axis.text.x = element_text(colour = 'black', size =12),
+        axis.text.y = element_text(colour = 'black', size = 12),
+        axis.text.x = element_text(colour = 'black', size = 12),
         legend.title = element_text(size = 14),
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
@@ -374,6 +374,10 @@ Moran_residual_plot <- cowplot::plot_grid(Moran_residual_plot_NH,
                                           labels = c('A', 'B', 'C'), ncol = 1, 
                                           label_x = .01, label_y = 1, 
                                           hjust = 0, label_size = 14, align = "v")
+
+
+
+
 #alpine dataset analysis
 
 ## read tibet plateau dataset
