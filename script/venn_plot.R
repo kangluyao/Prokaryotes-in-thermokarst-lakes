@@ -54,7 +54,7 @@ ggvenn(
 pa_venn <- otu %>% data.frame() %>%
   mutate(rowsum = rowSums(select(., c(1:108)))) %>%
   filter(rowsum > 0) %>%
-  rownames(),
+  rownames()
 tp_venn <- otu %>% data.frame() %>%
   mutate(rowsum = rowSums(select(., c(109:306)))) %>%
   filter(rowsum > 0) %>%
