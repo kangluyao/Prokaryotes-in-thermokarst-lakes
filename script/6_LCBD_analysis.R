@@ -132,7 +132,7 @@ library(rfPermute)
 env_div_rf <- env_div %>%
   dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
-meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree=999, num.rep = 999,
+meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 
 impor.dat <-data.frame(variables = rownames(importance(meta.lcbd.rf)), 
@@ -180,6 +180,8 @@ meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
 
 #determine the distance matrix
 env_div_rf <- na.omit(env_div_rf)
+# sum(apply(scale(env_div_rf), 2, is.nan))
+# apply(env_div_rf, 2, var) == 0
 library(geodist)
 x <- tibble::tibble (x = env_div_rf$longitude,
                      y = env_div_rf$latitude)
