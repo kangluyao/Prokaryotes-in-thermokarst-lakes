@@ -2,6 +2,7 @@
 library(lme4)
 library(lmerTest)
 library(multcomp)
+library(ggplot2)
 ggplot(meta_diversity, aes(x = MAT, y = Chao1)) + geom_point(alpha = 0.3)
 ggplot(meta_diversity, aes(x = MAP, y = Chao1)) + geom_point(alpha = 0.3)
 ggplot(meta_diversity, aes(x = DOC, y = Chao1)) + geom_point(alpha = 0.3)
@@ -108,22 +109,28 @@ env_div_agg_meta <-  env_div %>%
   group_by(Sitegroup, Site, Sitegroup1) %>%
   dplyr::summarise(across(everything(), mean, na.rm = TRUE))
 
-# ggplot(env_div, aes(x=pH, y=LCBD)) + geom_point(alpha = 0.3)
-# lm1 <- lm(LCBD ~  pH + I(pH^2), data = env_div)
-# summary(lm1)
-# ggplot(env_div, aes(x=DOC, y=LCBD)) + geom_point(alpha = 0.3)
-# lm2 <- lm(LCBD ~  DOC, data = env_div)
-# summary(lm2)
-# ggplot(env_div, aes(x=a320, y=LCBD)) + geom_point(alpha = 0.3)
-# lm3 <- lm(LCBD ~  a320 + I(a320^2), data = env_div)
-# summary(lm3)
-# ggplot(env_div, aes(x=SUVA254, y=LCBD)) + geom_point(alpha = 0.3)
-# lm4 <- lm(LCBD ~  SUVA254, data = env_div)
-# summary(lm4)
-# ggplot(env_div, aes(x=log(MAT+15), y=LCBD)) + geom_point(alpha = 0.3)
-# lm5 <- lm(LCBD ~ log(MAT+15), data = env_div)
-# summary(lm5)
-# ggplot(env_div, aes(x=MAP, y=LCBD)) + geom_point(alpha = 0.3)
+p1 <- ggplot(env_div, aes(x=pH, y=LCBD)) + geom_point(alpha = 0.3)
+lm1 <- lm(LCBD ~  pH + I(pH^2), data = env_div)
+summary(lm1)
+p2 <- ggplot(env_div, aes(x=DOC, y=LCBD)) + geom_point(alpha = 0.3)
+lm2 <- lm(LCBD ~  DOC, data = env_div)
+summary(lm2)
+p3 <- ggplot(env_div, aes(x=a320, y=LCBD)) + geom_point(alpha = 0.3)
+lm3 <- lm(LCBD ~  a320 + I(a320^2), data = env_div)
+summary(lm3)
+p4 <- ggplot(env_div, aes(x=SUVA254, y=LCBD)) + geom_point(alpha = 0.3)
+lm4 <- lm(LCBD ~  SUVA254, data = env_div)
+summary(lm4)
+p5 <- ggplot(env_div, aes(x=log(MAT+15), y=LCBD)) + geom_point(alpha = 0.3)
+lm5 <- lm(LCBD ~ log(MAT+15), data = env_div)
+summary(lm5)
+p6 <- ggplot(env_div, aes(x=MAP, y=LCBD)) + geom_point(alpha = 0.3)
+
+cowplot::plot_grid(p1, p2, p3, p4, p5, p6,
+                   labels = c('A', 'B', 'C', 'D', 'E', 'F'), ncol = 3, 
+                   label_x = .01, label_y = 1, 
+                   hjust = 0, label_size = 14, align = "v")
+
 
 ## random forest analysis for Northern Hemisphere
 ### Regression:
