@@ -1,11 +1,18 @@
 # set work dorectory
 setwd('E:/thermokast_lakes/water_microbes/')
 # loading packages
-PKGs <- c('ggplot2', 'ape', 'Biostrings', 'vegan', 'tidyverse',
+# ipak function: install and load multiple R packages.
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+pkgs <- c('ggplot2', 'ape', 'Biostrings', 'vegan', 'tidyverse',
           'reshape', 'cowplot', 'microbiome', 'RColorBrewer',
           'ggpubr', 'dplyr', 'phyloseq')
-
-lapply(PKGs, require, character.only = TRUE, warn.conflicts = FALSE)
+ipak(pkgs)
+# lapply(PKGs, require, character.only = TRUE, warn.conflicts = FALSE)
 
 #conduct a phyloseq project
 #read in metadata
