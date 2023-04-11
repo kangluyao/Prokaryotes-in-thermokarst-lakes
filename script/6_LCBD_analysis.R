@@ -125,6 +125,8 @@ p5 <- ggplot(env_div, aes(x=log(MAT+15), y=LCBD)) + geom_point(alpha = 0.3)
 lm5 <- lm(LCBD ~ log(MAT+15), data = env_div)
 summary(lm5)
 p6 <- ggplot(env_div, aes(x=MAP, y=LCBD)) + geom_point(alpha = 0.3)
+lm6 <- lm(LCBD ~ MAP + I(MAP^2), data = env_div)
+summary(lm6)
 
 cowplot::plot_grid(p1, p2, p3, p4, p5, p6,
                    labels = c('A', 'B', 'C', 'D', 'E', 'F'), ncol = 3, 

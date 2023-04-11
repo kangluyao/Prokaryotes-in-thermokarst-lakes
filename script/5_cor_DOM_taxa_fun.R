@@ -159,6 +159,10 @@ outlierKD <- function(dt, var) {
 tax_env_table <- data.frame(tax_table, DOM_env)
 outlierKD(tax_env_table, Burkholderiales)
 y
+outlierKD(tax_env_table, Burkholderiales)
+y
+outlierKD(tax_env_table, Burkholderiales)
+y
 outlierKD(tax_env_table, SUVA254)
 y
 outlierKD(tax_env_table, DOC)

@@ -135,45 +135,90 @@ taxa_barplot <- ggplot(top10phylum_meta, aes(fill=level2, y=MRA, x=level1)) +
         legend.background = element_rect(colour = "white"))
 taxa_barplot
 
+# plot the community composition for TP and PA at order level
+subphylo <- tax_glom(meta_physeq, 'Order')
+subphylo.rel  = transform_sample_counts(subphylo, function(x) x / sum(x) )
+ntaxa(subphylo.rel)
+meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
+meta.com.cla <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
+                                           detection = 1/100, prevalence = 10/100)
+
+ra.tab <- otu_table(subphylo.rel)
+sum(ra.tab[, 1])
+subtaxa_tab <- tax_table(subphylo.rel)[, 4]
+
+# set the plot theme
+mycols <- c("#d95f02", "#169e77", "#d3d93e", "#00718b", "#5F7FC7", "#CBD5ec", "#C0717C", "#5e738f", 
+            "#CE50CA", "#74d944", "#ffc15c", "#89c5da", "#D7C1B1", "#689030", "#AD6F3B", "grey", 
+            "#D14285", "#6DDE88", "#652926", "#7FDCC0", "#C84248", "#8569D5", "#5E738F", "#D1A33D", 
+            "#8A7C64", "#599861")
+
+main_theme = theme_linedraw() + 
+  theme(panel.grid=element_blank(), 
+        strip.text = element_text(colour = 'black', size = 12),
+        strip.background = element_rect(colour = 'grey', fill = 'grey'),
+        axis.title = element_text(color = 'black',size = 14),
+        axis.ticks.length = unit(0.4,"lines"), axis.ticks = element_line(color = 'black'),
+        axis.line = element_line(colour = "black"), 
+        axis.text.y = element_text(colour = 'black', size = 12),
+        axis.text.x = element_text(colour = 'black', size = 12),
+        legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12),
+        legend.key = element_blank(),
+        legend.background = element_rect(colour = "white"))
+
+order_tax_table <- data.frame(subtaxa_tab, ra.tab) %>% 
+  mutate(MRA = rowMeans(select(., colnames(ra.tab)))) %>%
+  arrange(desc(MRA)) %>% dplyr::top_n(15, MRA) %>%
+  select(., -c('MRA')) %>% 
+  bind_rows(summarise_all(., ~if(is.numeric(.)) 1-sum(.) else "Others")) %>%
+  mutate(Order = factor(Order, levels = Order)) %>%
+  pivot_longer(cols = -c(Order), names_to = "Sample_name", values_to = 'rel_abun') %>%
+  right_join(data.frame(Sample_name = rownames(metadata), Region = metadata$Region), by = c("Sample_name")) %>%
+  select(., -c('Sample_name')) %>% 
+  group_by(Region, Order) %>%
+  dplyr::summarise(across(, mean, na.rm = TRUE))
+
+print(order_tax_table, n = 32)
+write.csv(order_tax_table, "E:/thermokast_lakes/water_microbes/meta_analysis/results/tables/order_tax_table.csv")
+# bar plot at the order level
+bar_plot <- order_tax_table %>%
+  ggplot(aes(x = Region, y = 100*rel_abun, fill = Order))+
+  geom_bar(stat = "identity") +
+  scale_y_reverse(expand = c(0, 0)) +
+  scale_x_discrete(limits = c('Pan-Arctic', 'Tibetan Plateau')) +
+  scale_fill_manual(values =  mycols) +
+  labs(x = 'Region', y = 'Mean relative abundance (%)') +
+  guides(fill = guide_legend(keywidth = 0.5, keyheight = 0.5)) +
+  main_theme +
+  guides(fill = guide_legend(ncol = 5)) +
+  coord_flip()
+
+
 # Combining Plots
 library(cowplot)
 compositional_plot <- ggdraw() +
-  draw_plot(pie_for_otu_num_phylum, x = 0, y = 0, width = 0.5, height = 1) +
-  draw_plot(taxa_barplot, x = 0.5, y = 0, width = 0.5, height = 1) +
-  draw_plot_label(label = c("A", "B"), size = 14,
-                  x = c(0, 0.5), y = c(1, 1))
+  draw_plot(pie_for_otu_num_phylum, x = 0, y = 1/2, width = 0.5, height = 1/2) +
+  draw_plot(taxa_barplot, x = 0.5, y = 1/2, width = 0.5, height = 1/2) +
+  draw_plot(bar_plot, x = 0, y = 0, width = 1, height = 1/2) +
+  draw_plot_label(label = c("A", "B", "C"), size = 14,
+                  x = c(0, 0.5, 0), y = c(1, 1, 0.5))
 
 compositional_plot
 
 
 
-
-
-
-
-# archea analysis
-archaea_phylo <- subset_taxa(meta_physeq, Kingdom == 'Archaea', level = "Order")
-top10phylum_archaea <- arrange.tab(archaea_phylo, 10, 'Order', c(2,4))
-mra.archaea_level1 = top10phylum_archaea %>% group_by(level1) %>% 
+mra.tab_level1 = top10phylum_meta %>% group_by(level1) %>% 
   summarise(sum_MRA = sum(MRA)) %>% 
   arrange(desc(sum_MRA))
-mra.archaea_level1
-mra.archaea_level2 = top10phylum_archaea %>% group_by(level2) %>% 
-  summarise(sum_MRA = sum(MRA)) %>% 
-  arrange(desc(sum_MRA))
-mra.archaea_level2
 
-# plot the community composition for TP and PA at order level
-
-##prune out Order below 1% in each sample and prevalence lower than 10/100 at class level
-meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
-meta.com.ord <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
-                                           detection = 1/100, prevalence = 10/100)
-
-plot.composition.relAbun <- microbiome::plot_composition(meta.com.ord, 
+meta.com.phy <- microbiome::aggregate_rare(meta_physeq_rel, level = "Phylum", verbose = FALSE)
+meta.com.phy <- tax_glom(meta_physeq_rel, taxrank = "Phylum")
+plot.composition.relAbun <- microbiome::plot_composition(meta.com.cla, 
                                                          average_by = "Region", 
                                                          otu.sort = "abundance") +
-  scale_fill_manual(values = mycols) + 
+  scale_fill_manual(values = rep(mycols, 6)) + 
   scale_x_discrete(limits = c('Tibetan Plateau', 'Pan-Arctic')) +
   scale_y_continuous(labels = function(x) paste0(x*100), expand = c(0, 0)) + 
   labs(x = NULL, y = 'Mean relative abundance (%)') +
@@ -188,6 +233,17 @@ plot.composition.relAbun <- microbiome::plot_composition(meta.com.ord,
         legend.text = element_text(size = 12, colour = 'black'))
 plot.composition.relAbun 
 
+# archea analysis
+archaea_phylo <- subset_taxa(meta_physeq, Kingdom == 'Archaea', level = "Order")
+top10phylum_archaea <- arrange.tab(archaea_phylo, 10, 'Order', c(2,4))
+mra.archaea_level1 = top10phylum_archaea %>% group_by(level1) %>% 
+  summarise(sum_MRA = sum(MRA)) %>% 
+  arrange(desc(sum_MRA))
+mra.archaea_level1
+mra.archaea_level2 = top10phylum_archaea %>% group_by(level2) %>% 
+  summarise(sum_MRA = sum(MRA)) %>% 
+  arrange(desc(sum_MRA))
+mra.archaea_level2
 
 
 ## determine the composition within gammaproteobacteria
