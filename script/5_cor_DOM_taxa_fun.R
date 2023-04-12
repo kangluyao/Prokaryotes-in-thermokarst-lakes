@@ -1,9 +1,147 @@
-##prune out Order below 1% in each sample and prevalence lower than 10/100 at Order level
+##prune out Order below 1% in each sample and prevalence lower than 50/100 at Order level
 meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
 meta.com.ord <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
-                                           detection = 1/100, prevalence = 10/100)
+                                           detection = 1/100, prevalence = 50/100)
+
+
+dat_pr_high = filter_taxa(meta_physeq, function(x) {
+  (sum(x > 1) > 306 * 0.1) & (mean(x/sample_sums(meta_physeq)) > 0.001)
+}, prune = T)
 order_table <- otu_table(meta.com.ord)
-order_table[1:5, 1:5]
+order_table[1:9, 1:5]
+
+#plot
+main_theme <- theme(panel.background = element_rect(fill = 'white', colour = 'black'),
+                    panel.grid = element_blank())+ 
+  theme_bw()+
+  theme(axis.ticks.length = unit(0.4,"lines"), axis.ticks = element_line(color='black'),
+        axis.line = element_line(colour = "black"), 
+        axis.title.x = element_text(colour='black', size=14),
+        axis.title.y = element_text(colour='black', size=14),
+        axis.text.y = element_text(colour='black', size=12),
+        axis.text.x = element_text(colour = "black", size = 12))
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, DOC)
+y
+p_doc <- ggplot(test.dat, aes(x = DOC, y = log(Other + 1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(DOC, log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254')+ylab('Burkholderiales') +
+  # scale_y_continuous(expand = c(0,0), limits = c(0.2, 1)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_doc
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, SUVA254)
+y
+p_suv254 <- ggplot(test.dat, aes(x = log(SUVA254), y = log(Other + 1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(log(SUVA254), log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254') + ylab('Burkholderiales') +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_suv254
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, a320)
+y
+p_a320 <- ggplot(test.dat, aes(x = log(a320), y = log(Other + 1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(log(a320), log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254') + ylab('Burkholderiales') +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_a320
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, pH)
+y
+p_pH <- ggplot(test.dat, aes(x = pH, y = log(Other + 1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(pH, log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254')+ylab('Burkholderiales') +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_pH
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, MAP)
+y
+p_MAP <- ggplot(test.dat, aes(x = MAP, y = log(Other+1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(MAP, log(Other+1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254')+ylab('Burkholderiales') +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.5, 1)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_MAP
+
+test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
+outlierKD(test.dat, Other)
+y
+outlierKD(test.dat, MAT)
+y
+p_MAT <- ggplot(test.dat, aes(x = MAT, y = log(Other + 1))) +
+  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(MAT, log(Other+1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
+  # xlab('SUVA254')+ylab('Burkholderiales') +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.5, 1)) +
+  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  main_theme
+p_MAT
+
+
 allmean <- rowMeans(order_table)
 regiontype <- as.factor(sample_data(meta.com.ord)$Region)
 table(regiontype)
@@ -16,7 +154,7 @@ Order_levels <- rel_abun_dat_ord$Order[!rel_abun_dat_ord$Order %in% c('Other', "
 
 tax_table <- as.data.frame(t(data.frame(order_table))) %>% dplyr::select(Order_levels)
 ncol(tax_table)
-DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320'))
+DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))
 DOM_env[1:5, 1:3]
 
 #Now calculate the correlation between individual Taxa and the environmental data
@@ -90,7 +228,7 @@ df$Significance <- cut(df$Pvalue, breaks = c(-Inf, 0.001, 0.01, 0.05, Inf), labe
 df <- df[complete.cases(df),]
 
 #We want to reorganize the Env data based on they appear
-df$Env <- factor(df$Env, levels = rev(c('DOC', 'SUVA254', 'a320')))
+df$Env <- factor(df$Env, levels = rev(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH')))
 df$Index <- factor(df$Index, levels = c(Order_levels))
 #df$Taxa<-factor(df$Taxa,levels=rev(taxa_list))
 #df$Correlation[which(abs(df$AdjPvalue) >= 0.05)]<-0
