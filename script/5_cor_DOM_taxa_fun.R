@@ -1,145 +1,206 @@
-##prune out Order below 1% in each sample and prevalence lower than 50/100 at Order level
-meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
-meta.com.ord <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
-                                           detection = 1/100, prevalence = 50/100)
+# check the outlier
+outlierKD <- function(dt, var) {
+  var_name <- eval(substitute(var), eval(dt))
+  na1 <- sum(is.na(var_name))
+  m1 <- mean(var_name, na.rm = T)
+  par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
+  boxplot(var_name, main = "With outliers")
+  hist(var_name, main = "With outliers", xlab = NA, ylab = NA)
+  outlier <- boxplot.stats(var_name)$out
+  mo <- mean(outlier)
+  var_name <- ifelse(var_name %in% outlier, NA, var_name)
+  boxplot(var_name, main = "Without outliers")
+  hist(var_name, main = "Without outliers", xlab = NA, ylab = NA)
+  title("Outlier Check", outer = TRUE)
+  na2 <- sum(is.na(var_name))
+  cat("Outliers identified:", na2 - na1, "n")
+  cat("Propotion (%) of outliers:", round((na2 - na1)/sum(!is.na(var_name)) * 100, 1), "n")
+  cat("Mean of the outliers:", round(mo, 2), "n")
+  m2 <- mean(var_name, na.rm = T)
+  cat("Mean without removing outliers:", round(m1, 2), "n")
+  cat("Mean if we remove outliers:", round(m2, 2), "n")
+  response <- readline(prompt = "Do you want to remove outliers and to replace with NA? [yes/no]: ")
+  if (response == "y" | response == "yes") {
+    dt[as.character(substitute(var))] <- invisible(var_name)
+    assign(as.character(as.list(match.call())$dt), dt, envir = .GlobalEnv)
+    cat("Outliers successfully removed", "n")
+    return(invisible(dt))
+  } else {
+    cat("Nothing changed", "n")
+    return(invisible(var_name))
+  }
+}
+# env table
+DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))
+DOM_env[1:5, 1:3]
+# extract the most abundant 10% of taxa in at least half of the samples at the order level
+subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
+subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
+f1<- filterfun_sample(topf(0.9))
+wh1 <- genefilter_sample(subphylo.rel, f1, A=(1/2*nsamples(subphylo.rel)))
+sum(wh1)
+meta.com.ord <- prune_taxa(wh1, subphylo.rel)
 
-
-dat_pr_high = filter_taxa(meta_physeq, function(x) {
-  (sum(x > 1) > 306 * 0.1) & (mean(x/sample_sums(meta_physeq)) > 0.001)
-}, prune = T)
+# check the outliers of data and prepare the data for plot
 order_table <- otu_table(meta.com.ord)
-order_table[1:9, 1:5]
-
-#plot
-main_theme <- theme(panel.background = element_rect(fill = 'white', colour = 'black'),
-                    panel.grid = element_blank())+ 
-  theme_bw()+
-  theme(axis.ticks.length = unit(0.4,"lines"), axis.ticks = element_line(color='black'),
-        axis.line = element_line(colour = "black"), 
-        axis.title.x = element_text(colour='black', size=14),
-        axis.title.y = element_text(colour='black', size=14),
-        axis.text.y = element_text(colour='black', size=12),
-        axis.text.x = element_text(colour = "black", size = 12))
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
-y
-outlierKD(test.dat, DOC)
-y
-p_doc <- ggplot(test.dat, aes(x = DOC, y = log(Other + 1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
-  # stat_regline_equation(
-  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-  #   formula =y ~ poly(x, 2, raw = TRUE),
-  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(DOC, log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254')+ylab('Burkholderiales') +
-  # scale_y_continuous(expand = c(0,0), limits = c(0.2, 1)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
-  main_theme
-p_doc
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
-y
-outlierKD(test.dat, SUVA254)
-y
-p_suv254 <- ggplot(test.dat, aes(x = log(SUVA254), y = log(Other + 1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
-  # stat_regline_equation(
-  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-  #   formula =y ~ poly(x, 2, raw = TRUE),
-  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(log(SUVA254), log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254') + ylab('Burkholderiales') +
-  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
-  main_theme
-p_suv254
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
-y
-outlierKD(test.dat, a320)
-y
-p_a320 <- ggplot(test.dat, aes(x = log(a320), y = log(Other + 1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
-  # stat_regline_equation(
-  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-  #   formula =y ~ poly(x, 2, raw = TRUE),
-  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(log(a320), log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254') + ylab('Burkholderiales') +
-  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
-  main_theme
-p_a320
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
+order_table[1:7, 1:5]
+test.dat <- data.frame(Abund = colSums(order_table), DOM_env)
+outlierKD(test.dat, Abund)
 y
 outlierKD(test.dat, pH)
 y
-p_pH <- ggplot(test.dat, aes(x = pH, y = log(Other + 1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
-  # stat_regline_equation(
-  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-  #   formula =y ~ poly(x, 2, raw = TRUE),
-  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(pH, log(Other + 1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254')+ylab('Burkholderiales') +
-  scale_y_continuous(expand = c(0,0), limits = c(-0.25, 0.75)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
-  main_theme
-p_pH
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
-y
 outlierKD(test.dat, MAP)
-y
-p_MAP <- ggplot(test.dat, aes(x = MAP, y = log(Other+1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
-  # stat_regline_equation(
-  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-  #   formula =y ~ poly(x, 2, raw = TRUE),
-  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(MAP, log(Other+1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254')+ylab('Burkholderiales') +
-  scale_y_continuous(expand = c(0,0), limits = c(-0.5, 1)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
-  main_theme
-p_MAP
-
-test.dat <- data.frame(Other = as.vector(order_table[c('Other'), ]), DOM_env)
-outlierKD(test.dat, Other)
 y
 outlierKD(test.dat, MAT)
 y
-p_MAT <- ggplot(test.dat, aes(x = MAT, y = log(Other + 1))) +
-  geom_point(shape = 19, size = 2, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1.5, se = T, colour = 'black') +
+outlierKD(test.dat, SUVA254)
+y
+outlierKD(test.dat, DOC)
+y
+outlierKD(test.dat, a320)
+y
+
+# set the environmmental vatiables
+vars<-c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH')
+
+# linear regression test
+summary.is <- function(vars, df) {
+  require(dplyr)
+  model <- lapply(vars, function(x) {
+    lm(substitute(Abund ~ i, list(i = as.name(x))), data = df)
+  })
+  r.squre <- round(as.vector(unlist(lapply(model, function(x) summary(x)$r.squared))), 3)
+  p.value <- round(as.vector(unlist(lapply(model, function(x) anova(x)$"Pr(>F)"[1]))), 3)
+  p.stars = function(p.values) {
+    unclass(symnum(p.values, corr = FALSE, na = FALSE, cutpoints = c(0, 0.001, 0.01, 0.05, 0.1, 1), symbols = c("***", "**", "*", ".", " ")))
+  }
+  sig <- as.vector(unlist(lapply(p.value, p.stars)))
+  normality <- round(as.vector(unlist(lapply(model, function(x) shapiro.test(residuals(x))$p.value))), 3)
+  summary.table <- data.frame(vars, r.squre, p.value, sig, normality)
+  return(summary.table)
+}
+summary.is(vars, test.dat)
+
+# spearman test and plot
+main_theme <- theme_bw() + 
+  theme(axis.ticks.length = unit(0.4, "lines"), 
+        axis.ticks = element_line(color = "black"),
+        axis.line = element_line(colour = "black"), 
+        axis.title.x = element_text(colour = "black", size = 12), 
+        axis.title.y = element_text(colour = "black", size = 12), 
+        axis.text.y = element_text(colour = "black", size = 10), 
+        axis.text.x = element_text(colour = "black", size = 10), 
+        panel.background = element_rect(fill = "white", colour = "black"), 
+        panel.grid = element_blank())
+
+test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = 'value') %>%
+  mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))) %>%
+  mutate(Abund = Abund * 100) %>%
+  ggplot(aes(x = value, y = Abund)) +
+  geom_point(shape = 19, size = 1, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1, se = T, colour = 'black') +
   # stat_regline_equation(
   #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
   #   formula =y ~ poly(x, 2, raw = TRUE),
   #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
-  ggpubr::stat_cor(aes(MAT, log(Other+1), label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
-                   method = "pearson", label.x.npc = 0.1, label.y.npc = 0.1, size = 5) +
-  # xlab('SUVA254')+ylab('Burkholderiales') +
-  scale_y_continuous(expand = c(0,0), limits = c(-0.5, 1)) +
-  # scale_x_continuous(expand = c(0,0), limits = c(200, 550)) +
+  ggpubr::stat_cor(aes(value, Abund, label = paste(..r.label.., ..p.label.., sep = "~`,`~")),
+                   cor.coef.name = "rho", p.accuracy = 0.001, r.accuracy = 0.01,
+                   method = "spearman", label.x.npc = 0.3, label.y.npc = 0.05, size = 4) +
+  xlab('Environmental variables') +
+  ylab('Relative abundance of abundant taxa (%)') +
+  facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
-p_MAT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+plot_loess_df <- function(
+    data = NULL,
+    dependent.variable.name = NULL,
+    predictor.variable.names = NULL,
+    ncol = NULL,
+    method = "loess",
+    point.color = "tomato3",
+    line.color = "black"
+){
+  
+  if(
+    is.null(data) |
+    is.null(dependent.variable.name) |
+    is.null(predictor.variable.names)
+  ){
+    stop("No variables to plot.")
+  }
+  #predictor.variable.names comes from environmental variables
+  if(!is.null(predictor.variable.names)){
+    if(inherits(predictor.variable.names, "variable_selection")){
+      predictor.variable.names <- predictor.variable.names$selected.variables
+    }
+  }
+  plot.list <- list()
+  for(variable in predictor.variable.names){
+    plot.list[[variable]] <- ggplot2::ggplot(
+      data = data,
+      ggplot2::aes_string(
+        x = variable,
+        y = dependent.variable.name,
+        color = dependent.variable.name
+      )
+    ) +
+      ggplot2::geom_point(colour = point.color) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(legend.position = "none") +
+      ggplot2::geom_smooth(
+        method = method,
+        col = line.color,
+        formula = y ~ poly(x, 1, raw = TRUE),
+        se = TRUE,
+        alpha = 0.75
+      )
+  }
+  p <- patchwork::wrap_plots(plot.list, ncol = ncol)
+  p
+}
+
+plot_loess_df(
+  data = test.dat,
+  dependent.variable.name = 'Abund',
+  predictor.variable.names = vars,
+  method = 'lm',
+  ncol = 3,
+  line.color = "gray30"
+)
+
+
+
+
+
 
 
 allmean <- rowMeans(order_table)

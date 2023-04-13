@@ -136,7 +136,7 @@ taxa_barplot <- ggplot(top10phylum_meta, aes(fill=level2, y=MRA, x=level1)) +
 taxa_barplot
 
 # plot the community composition for TP and PA at order level
-subphylo <- tax_glom(meta_physeq, 'Order')
+subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
 subphylo.rel  = transform_sample_counts(subphylo, function(x) x / sum(x) )
 ntaxa(subphylo.rel)
 meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
