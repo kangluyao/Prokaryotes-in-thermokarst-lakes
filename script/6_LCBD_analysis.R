@@ -138,12 +138,15 @@ cowplot::plot_grid(p1, p2, p3, p4, p5, p6,
 ### Regression:
 library(randomForest)
 library(rfPermute)
+library(A3)
 env_div_rf <- env_div %>%
   dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
+out.rf <- a3(LCBD ~ . + 0, data = (env_div_rf)[3:9], randomForest, 
+             model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
+out.rf
 meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
-                     importance = TRUE, na.action = na.omit)
-
+                          importance = TRUE, na.action = na.omit)
 impor.dat <-data.frame(variables = rownames(importance(meta.lcbd.rf)), 
                        IncMSE = importance(meta.lcbd.rf)[,1])
 library(dplyr)
@@ -226,10 +229,13 @@ model.spatial <- spatialRF::rf_spatial(
 Moran_residual_plot_NH <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 
 ## random forest analysis for Tibetan Plateau
-env_div_rf <- env_div %>%
+env_div_rf_tp <- env_div %>%
   filter(Region == 'Tibetan Plateau') %>%
   dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
+out.rf.tp <- a3(LCBD ~ . + 0, data = (env_div_rf_tp)[3:9], randomForest, 
+                model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
+out.rf.tp
 tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 
@@ -292,10 +298,13 @@ model.spatial <- spatialRF::rf_spatial(
 #shows the Moran’s I of the residuals of the spatial model
 Moran_residual_plot_TP <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 ## random forest analysis for Pan-Arctic
-env_div_rf <- env_div %>%
+env_div_rf_pa <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
   dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
+out.rf.pa <- a3(LCBD ~ . + 0, data = (env_div_rf_pa)[3:9], randomForest, 
+                model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
+out.rf.pa
 pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 
