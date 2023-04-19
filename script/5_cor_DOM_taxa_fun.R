@@ -93,6 +93,7 @@ main_theme <- theme_bw() +
         panel.background = element_rect(fill = "white", colour = "black"), 
         panel.grid = element_blank())
 
+# spearman
 test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = 'value') %>%
   mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))) %>%
   mutate(Abund = Abund * 100) %>%
@@ -112,8 +113,21 @@ test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = '
   main_theme
 
 
-
-
+## GAM
+test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = 'value') %>%
+  mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))) %>%
+  mutate(Abund = Abund * 100) %>%
+  ggplot(aes(x = value, y = Abund)) +
+  geom_point(shape = 19, size = 1, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "gam", formula = y ~ splines::ns(x, 2), size = 1, se = T, colour = 'black') +
+  stat_regline_equation(
+    aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+    formula = y ~ splines::ns(x, 3),
+    label.x.npc = 0.1, label.y.npc = 0.98, size = 3.5) +
+  xlab('Environmental variables') +
+  ylab('Relative abundance of abundant taxa (%)') +
+  facet_wrap( ~ env_name, scales = 'free_x') +
+  main_theme
 
 
 
@@ -187,6 +201,7 @@ plot_loess_df <- function(
   p <- patchwork::wrap_plots(plot.list, ncol = ncol)
   p
 }
+
 
 plot_loess_df(
   data = test.dat,
