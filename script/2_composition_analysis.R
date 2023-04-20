@@ -181,7 +181,7 @@ order_tax_table <- data.frame(subtaxa_tab, ra.tab) %>%
   dplyr::summarise(across(, mean, na.rm = TRUE))
 
 print(order_tax_table, n = 32)
-write.csv(order_tax_table, "E:/thermokast_lakes/water_microbes/meta_analysis/results/tables/order_tax_table.csv")
+# write.csv(order_tax_table, "E:/thermokast_lakes/water_microbes/meta_analysis/results/tables/order_tax_table.csv")
 # bar plot at the order level
 bar_plot <- order_tax_table %>%
   ggplot(aes(x = Region, y = 100*rel_abun, fill = Order))+
@@ -194,7 +194,7 @@ bar_plot <- order_tax_table %>%
   main_theme +
   guides(fill = guide_legend(ncol = 5)) +
   coord_flip()
-
+bar_plot
 # Combining Plots
 library(cowplot)
 compositional_plot <- ggdraw() +
@@ -203,5 +203,4 @@ compositional_plot <- ggdraw() +
   draw_plot(bar_plot, x = 0, y = 0, width = 1, height = 1/2) +
   draw_plot_label(label = c("A", "B", "C"), size = 14,
                   x = c(0, 0.5, 0), y = c(1, 1, 0.5))
-
 compositional_plot

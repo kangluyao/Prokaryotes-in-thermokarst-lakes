@@ -34,8 +34,8 @@ outlierKD <- function(dt, var) {
 DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))
 DOM_env[1:5, 1:3]
 # extract the most abundant 10% of taxa in at least half of the samples at the order level
-subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
-subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
+# subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
+# subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
 f1<- filterfun_sample(topf(0.9))
 wh1 <- genefilter_sample(subphylo.rel, f1, A=(1/2*nsamples(subphylo.rel)))
 sum(wh1)
@@ -112,108 +112,38 @@ test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = '
   facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
 
+# other regression models
+source("https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression_plot.R")
+# linear model
+vars = c('MAP', 'MAT', 'pH', 'DOC', 'SUVA254', 'a320')
+plot_cor_df(
+  data = test.dat,
+  y.name = 'Abund',
+  x.names = vars,
+  method = "spearman",
+  ncol = 3)
 
-## GAM
-test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = 'value') %>%
-  mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))) %>%
-  mutate(Abund = Abund * 100) %>%
-  ggplot(aes(x = value, y = Abund)) +
-  geom_point(shape = 19, size = 1, colour ='tomato3', alpha = 0.8) +
-  geom_smooth(method = "gam", formula = y ~ splines::ns(x, 2), size = 1, se = T, colour = 'black') +
-  stat_regline_equation(
-    aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
-    formula = y ~ splines::ns(x, 3),
-    label.x.npc = 0.1, label.y.npc = 0.98, size = 3.5) +
-  xlab('Environmental variables') +
-  ylab('Relative abundance of abundant taxa (%)') +
-  facet_wrap( ~ env_name, scales = 'free_x') +
-  main_theme
+# quadratic model
+plot_poly_df(
+  data = test.dat,
+  y.name = 'Abund',
+  x.names = vars,
+  poly = 2,
+  ncol = 3)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-plot_loess_df <- function(
-    data = NULL,
-    dependent.variable.name = NULL,
-    predictor.variable.names = NULL,
-    ncol = NULL,
-    method = "loess",
-    point.color = "tomato3",
-    line.color = "black"
-){
-  
-  if(
-    is.null(data) |
-    is.null(dependent.variable.name) |
-    is.null(predictor.variable.names)
-  ){
-    stop("No variables to plot.")
-  }
-  #predictor.variable.names comes from environmental variables
-  if(!is.null(predictor.variable.names)){
-    if(inherits(predictor.variable.names, "variable_selection")){
-      predictor.variable.names <- predictor.variable.names$selected.variables
-    }
-  }
-  plot.list <- list()
-  for(variable in predictor.variable.names){
-    plot.list[[variable]] <- ggplot2::ggplot(
-      data = data,
-      ggplot2::aes_string(
-        x = variable,
-        y = dependent.variable.name,
-        color = dependent.variable.name
-      )
-    ) +
-      ggplot2::geom_point(colour = point.color) +
-      ggplot2::theme_bw() +
-      ggplot2::theme(legend.position = "none") +
-      ggplot2::geom_smooth(
-        method = method,
-        col = line.color,
-        formula = y ~ poly(x, 1, raw = TRUE),
-        se = TRUE,
-        alpha = 0.75
-      )
-  }
-  p <- patchwork::wrap_plots(plot.list, ncol = ncol)
-  p
-}
-
+# generalized additive model
+plot_gam_df(
+  data = test.dat,
+  y.name = 'Abund',
+  x.names = vars,
+  k = 2,
+  ncol = 3)
 
 plot_loess_df(
   data = test.dat,
-  dependent.variable.name = 'Abund',
-  predictor.variable.names = vars,
-  method = 'lm',
-  ncol = 3,
-  line.color = "gray30"
-)
-
-
-
+  y.name = 'Abund',
+  x.names = vars,
+  ncol = 3)
 
 
 
