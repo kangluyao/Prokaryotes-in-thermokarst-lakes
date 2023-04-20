@@ -3,75 +3,31 @@ library(lme4)
 library(lmerTest)
 library(multcomp)
 library(ggplot2)
+library(tidyverse)
+##################################################
+# linear and quadratic relationship between alpha diveristy and environmental factors
+source('https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression.R')
 
-mode1 <- lmer(log(Chao1) ~ Region + (1|Site), meta_diversity)
-summary(mode1)
-MuMIn::r.squaredGLMM(mode1)
-mode2 <- lmer(Shannon ~ Region + (1|Site), meta_diversity)
-summary(mode2)
-MuMIn::r.squaredGLMM(mode2)
-mode3 <- lmer(log(Simpson) ~ Region + (1|Site), meta_diversity)
-summary(mode3)
-MuMIn::r.squaredGLMM(mode3)
-ggplot(meta_diversity, aes(x=MAT, y=Simpson)) + geom_point(alpha = 0.3)
-mode4 <- lmer(log(Chao1) ~ MAT + (1|Site), meta_diversity)
-summary(mode4)
-MuMIn::r.squaredGLMM(mode4)
-mode5 <- lmer(Shannon ~ MAT + (1|Site), meta_diversity)
-summary(mode5)
-MuMIn::r.squaredGLMM(mode5)
-mode6 <- lmer(log(Simpson) ~ MAT + (1|Site), meta_diversity)
-summary(mode6)
-MuMIn::r.squaredGLMM(mode6)
-ggplot(meta_diversity, aes(x=MAP, y=Chao1)) + geom_point(alpha = 0.3)
-mode7 <- lmer(log(Chao1) ~ MAP + (1|Site), meta_diversity)
-summary(mode7)
-MuMIn::r.squaredGLMM(mode7)
-mode8 <- lmer(Shannon ~ MAP + (1|Site), meta_diversity)
-summary(mode8)
-MuMIn::r.squaredGLMM(mode8)
-mode9 <- lmer(log(Simpson) ~ MAP + (1|Site), meta_diversity)
-summary(mode9)
-MuMIn::r.squaredGLMM(mode9)
-ggplot(meta_diversity, aes(x=DOC, y=Chao1)) + geom_point(alpha = 0.3)
-mode10 <- lmer(log(Chao1) ~ DOC + (1|Site), meta_diversity)
-summary(mode10)
-MuMIn::r.squaredGLMM(mode10)
-mode11 <- lmer(Shannon ~ DOC + (1|Site), meta_diversity)
-summary(mode11)
-MuMIn::r.squaredGLMM(mode11)
-mode12 <- lmer(log(Simpson) ~ DOC + (1|Site), meta_diversity)
-summary(mode12)
-MuMIn::r.squaredGLMM(mode12)
-mode13 <- lmer(log(Chao1) ~ SUVA254 + (1|Site), meta_diversity)
-summary(mode13)
-MuMIn::r.squaredGLMM(mode13)
-mode14 <- lmer(Shannon ~ SUVA254 + (1|Site), meta_diversity)
-summary(mode14)
-MuMIn::r.squaredGLMM(mode14)
-mode15 <- lmer(log(Simpson) ~ SUVA254 + (1|Site), meta_diversity)
-summary(mode15)
-MuMIn::r.squaredGLMM(mode15)
-mode16 <- lmer(log(Chao1) ~ a320 + (1|Site), meta_diversity)
-summary(mode16)
-MuMIn::r.squaredGLMM(mode16)
-mode17 <- lmer(Shannon ~ a320 + (1|Site), meta_diversity)
-summary(mode17)
-MuMIn::r.squaredGLMM(mode17)
-mode18 <- lmer(log(Simpson) ~ a320 + (1|Site), meta_diversity)
-summary(mode18)
-MuMIn::r.squaredGLMM(mode18)
-mode19 <- lmer(log(Chao1) ~ pH + (1|Site), meta_diversity)
-summary(mode19)
-MuMIn::r.squaredGLMM(mode19)
-mode20 <- lmer(Shannon ~ pH + (1|Site), meta_diversity)
-summary(mode20)
-MuMIn::r.squaredGLMM(mode20)
-mode21 <- lmer(log(Simpson) ~ pH + (1|Site), meta_diversity)
-summary(mode21)
-MuMIn::r.squaredGLMM(mode21)
+# transform or scale the data
+meta_diversity$Chao1 = log(meta_diversity$Chao1)
+meta_diversity$Shannon = meta_diversity$Shannon
+meta_diversity$Simpson = log(meta_diversity$Simpson + 1)
+meta_diversity <- meta_diversity %>% 
+  mutate_at(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'), funs(c(scale(.))))
+
+diver_table <- meta_diversity[ ,c("Chao1", "Shannon", "Simpson")]
+substrate_table <- meta_diversity[ ,c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH')]
+
+# linear mixed model
+lmm.matrix <- lmm.mat.cal(diver_table, substrate_table, meta_diversity)
+lmm.matrix
+
+# quadratic mixed model
+lmm.quadr.matrix <- lmm.quadr.mat.cal(diver_table, substrate_table, meta_diversity)
+lmm.quadr.matrix
 
 
+#####################################################
 # test the relationship between LCBD and MAP across the Northern Hemisphere
 library(adespatial)
 ## total community
@@ -81,40 +37,8 @@ beta_meta_div <- beta.div(t(as.matrix(otu_table(meta_physeq))),
 
 env_div <- data.frame(LCBD = beta_meta_div$LCBD, sample_data(meta_physeq))
 
-## calculate the average LCBD for each site
-library(dplyr)
-env_div_agg_meta <-  env_div %>% 
-  dplyr::select(c(1, 5, 6, 7, 8, 19)) %>%
-  group_by(Sitegroup, Site, Sitegroup1) %>%
-  dplyr::summarise(across(everything(), mean, na.rm = TRUE))
-
-p1 <- ggplot(env_div, aes(x=pH, y=LCBD)) + geom_point(alpha = 0.3)
-lm1 <- lm(LCBD ~  pH + I(pH^2), data = env_div)
-summary(lm1)
-p2 <- ggplot(env_div, aes(x=DOC, y=LCBD)) + geom_point(alpha = 0.3)
-lm2 <- lm(LCBD ~  DOC, data = env_div)
-summary(lm2)
-p3 <- ggplot(env_div, aes(x=a320, y=LCBD)) + geom_point(alpha = 0.3)
-lm3 <- lm(LCBD ~  a320 + I(a320^2), data = env_div)
-summary(lm3)
-p4 <- ggplot(env_div, aes(x=SUVA254, y=LCBD)) + geom_point(alpha = 0.3)
-lm4 <- lm(LCBD ~  SUVA254, data = env_div)
-summary(lm4)
-p5 <- ggplot(env_div, aes(x=log(MAT+15), y=LCBD)) + geom_point(alpha = 0.3)
-lm5 <- lm(LCBD ~ log(MAT+15), data = env_div)
-summary(lm5)
-p6 <- ggplot(env_div, aes(x=MAP, y=LCBD)) + geom_point(alpha = 0.3)
-lm6 <- lm(LCBD ~ MAP + I(MAP^2), data = env_div)
-summary(lm6)
-
-cowplot::plot_grid(p1, p2, p3, p4, p5, p6,
-                   labels = c('A', 'B', 'C', 'D', 'E', 'F'), ncol = 3, 
-                   label_x = .01, label_y = 1, 
-                   hjust = 0, label_size = 14, align = "v")
-
-
-## random forest analysis for Northern Hemisphere
-### Regression:
+# random forest analysis for Northern Hemisphere
+## Regression:
 library(randomForest)
 library(rfPermute)
 library(A3)
@@ -168,8 +92,7 @@ meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75))
 # check the spatial autocorrelation
-
-#determine the distance matrix
+## determine the distance matrix
 env_div_rf <- na.omit(env_div_rf)
 # sum(apply(scale(env_div_rf), 2, is.nan))
 # apply(env_div_rf, 2, var) == 0
@@ -207,7 +130,8 @@ model.spatial <- spatialRF::rf_spatial(
 #shows the Moran’s I of the residuals of the spatial model
 Moran_residual_plot_NH <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 
-## random forest analysis for Tibetan Plateau
+#############################################
+# random forest analysis for Tibetan Plateau
 env_div_rf_tp <- env_div %>%
   filter(Region == 'Tibetan Plateau') %>%
   dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
@@ -276,6 +200,8 @@ model.spatial <- spatialRF::rf_spatial(
 )
 #shows the Moran’s I of the residuals of the spatial model
 Moran_residual_plot_TP <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
+
+#############################################
 ## random forest analysis for Pan-Arctic
 env_div_rf_pa <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
@@ -373,6 +299,9 @@ Moran_residual_plot <- cowplot::plot_grid(Moran_residual_plot_NH,
                                           labels = c('A', 'B', 'C'), ncol = 1, 
                                           label_x = .01, label_y = 1, 
                                           hjust = 0, label_size = 14, align = "v")
+Moran_residual_plot
+
+
 
 
 
