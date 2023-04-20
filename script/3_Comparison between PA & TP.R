@@ -143,6 +143,51 @@ lefse_plot <- m1_genus$plot_diff_bar(use_number = 1:37, LDA_score = 4, color_val
                         plot_vertical = TRUE, width = 0.5)
 #m1_genus$plot_diff_abund(use_number = 1:37, color_values = c('#d95f02', '#1b9e77'))
 
+##################################################################
+# unique otus profile among two regions
+# Load the library
+library(limma)
+library(phyloseq)
+library(VennDiagram)
+otu <- data.frame(otu_table(meta_physeq))
+# List of items
+x <- list(otu %>% data.frame() %>%
+            mutate(rowsum = rowSums(select(., c(1:108)))) %>%
+            filter(rowsum > 0) %>%
+            rownames(), 
+          otu %>% data.frame() %>%
+            mutate(rowsum = rowSums(select(., c(109:306)))) %>%
+            filter(rowsum > 0) %>%
+            rownames())
+names(x) <- c("Pan-Arctic","Tibetan Plateau")
+# plot
+# Helper function to display Venn diagram
+display_venn <- function(x, ...){
+  library(VennDiagram)
+  grid.newpage()
+  venn_object <- venn.diagram(x, filename = NULL, ...)
+  grid.draw(venn_object)
+}
+# Further customization
+display_venn(
+  x,
+  category.names = c("Pan-Arctic", "Tibetan Plateau"),
+  disable.logging = TRUE,
+  scaled = F,
+  # Circles
+  lwd = 2,
+  lty = 'blank',
+  fill = c("#E69F00", "#009E73"),
+  # Numbers
+  cex = .9,
+  fontface = "italic",
+  # Set names
+  cat.cex = 1,
+  cat.default.pos = "outer",
+  cat.pos = c(-0.5, 0.5),
+  cat.dist = c(0.045, 0.045)
+)
+
 # Combining Plots
 library(cowplot)
 comparison_plot <- ggdraw() +
