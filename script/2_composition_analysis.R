@@ -137,11 +137,11 @@ taxa_barplot
 
 # plot the community composition for TP and PA at order level
 subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
-subphylo.rel  = transform_sample_counts(subphylo, function(x) x / sum(x) )
+subphylo.rel  = transform_sample_counts(subphylo, function(x) x / sum(x))
 ntaxa(subphylo.rel)
-meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
-meta.com.cla <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
-                                           detection = 1/100, prevalence = 10/100)
+# meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
+# meta.com.cla <- microbiome::aggregate_rare(meta_physeq_rel, level = "Order", 
+#                                            detection = 1/100, prevalence = 10/100)
 
 ra.tab <- otu_table(subphylo.rel)
 sum(ra.tab[, 1])

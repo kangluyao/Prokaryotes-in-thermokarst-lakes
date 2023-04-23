@@ -111,7 +111,6 @@ test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = '
   ylab('Relative abundance of abundant taxa (%)') +
   facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
-
 # other regression models
 source("https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression_plot.R")
 # linear model
@@ -145,6 +144,52 @@ plot_loess_df(
   x.names = vars,
   ncol = 3)
 
+# test the relationship between the relative abundance of Burkholderiales and DOM
+tax_env_table <- data.frame(tax_table(subphylo.rel)[, 4], otu_table(subphylo.rel)) %>% 
+    mutate(MRA = rowMeans(dplyr::select(., rownames(sample_data(subphylo.rel))))) %>%
+    arrange(desc(MRA)) %>% dplyr::top_n(5, MRA) %>%
+    dplyr::select(., -c('MRA')) %>% 
+    bind_rows(summarise_all(., ~if(is.numeric(.)) 1-sum(.) else "Others")) %>%
+    remove_rownames %>% column_to_rownames(var = "Order") %>%
+    t() %>% data.frame(., DOM_env)
+# cheak the outliers
+outlierKD(tax_env_table, Burkholderiales)
+y
+outlierKD(tax_env_table, SUVA254)
+y
+outlierKD(tax_env_table, DOC)
+y
+outlierKD(tax_env_table, a320)
+y
+# relationship between the relative abundance of Burkholderiales and DOM properties
+tax_env_table %>% dplyr::select('Burkholderiales', 'DOC', 'SUVA254', 'a320') %>%
+  pivot_longer(cols = -c(Burkholderiales), names_to = "env_name", values_to = 'value') %>%
+  mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320'))) %>%
+  mutate(Burkholderiales = Burkholderiales * 100) %>%
+  ggplot(aes(x = value, y = Burkholderiales)) +
+  geom_point(shape = 19, size = 1, colour ='tomato3', alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 1, raw = TRUE), size = 1, se = T, colour = 'black') +
+  # stat_regline_equation(
+  #   aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+  #   formula =y ~ poly(x, 2, raw = TRUE),
+  #   label.x.npc = 0.45, label.y.npc = 0.98, size = 5) +
+  ggpubr::stat_cor(aes(value, Burkholderiales, label = paste(..r.label.., ..p.label.., sep = "~`,`~")),
+                   cor.coef.name = "rho", p.accuracy = 0.001, r.accuracy = 0.01,
+                   method = "spearman", label.x.npc = 0.3, label.y.npc = 0.05, size = 4) +
+  xlab('DOM properties') +
+  ylab('Relative abundance of Burkholderiales (%)') +
+  facet_wrap( ~ env_name, scales = 'free_x') +
+  main_theme
+
+
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
