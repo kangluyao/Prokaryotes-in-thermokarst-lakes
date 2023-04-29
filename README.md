@@ -13,7 +13,7 @@
     ├── 3_Comparison between PA & TP.R      <-- codes for comparison analysis between pan-Arctic and Tibetan Plateau
     └── 5_cor_DOM_taxa_fun.R                <-- test the relationship between the dominant taxa and DOM properties
     ├── 6_LCBD_analysis.R                   <-- codes for LCBD analysis
-    └── FARPROTAX_Carbon.R                  <-- codes for functional groups analysis
+    └── FARPROTAX.R                  <-- codes for functional groups analysis
 └── data1                     
     ├── qiime2                              <-- files and code to reproduce CogSci paper
         ├── thermokarst-lakes-rep-seqs.qza  <-- represent sequences output file from qiime2
