@@ -181,8 +181,8 @@ tax_env_table %>% dplyr::select('Burkholderiales', 'DOC', 'SUVA254', 'a320') %>%
   facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
 
-
-  
+# determine the composition of the dominant taxa
+tax_table(meta.com.ord) 
   
   
   
