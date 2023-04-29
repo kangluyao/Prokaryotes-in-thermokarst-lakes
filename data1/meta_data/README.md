@@ -1,3 +1,0 @@
-Data set used to perform analyses in "Climatic factors dominate the variance of prokaryotic communities in thermokarst lake water across the Northern Hemisphere permafrost regions" (Kang et al., 2023)
-
-DNA sequence and corresponding metadata were submitted to the NCBI Sequence Read Archive (SRA) database under the BioProject number PRJNA936665. R codes for statistical analysis are available at https://github.com/kangluyao/prokaryotes-in-thermokarst-lakes.
