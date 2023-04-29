@@ -1,0 +1,307 @@
+	geo_loc_name_country	geo_loc_name_country_continent	geographic_location_.country_and.or_sea.	Sitegroup	Region	Site	Sitegroup1	geographic location depth (cm)	latitude	longitude	Sample_Name	DOC	SUVA254	a320	MAP	MAT	pH
+ERR4650773	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-1_BAC		1.380005965	17.10090393	210	-13.93	5
+ERR4650774	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-2_BAC	12.49	1.380005965	16.45967642	210	-13.93	5
+ERR4650775	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-1_BAC	17.98	1.702236509	29.32486659	210	-13.93	5
+ERR4650776	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-2_BAC	18.43	1.702236509	30.96406069	210	-13.93	5
+ERR4650777	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-3_BAC	22.03	2.284136136	45.26523931	209	-13.91	5
+ERR4650778	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-2_BAC	21.03	2.284136136	45.3691	209	-13.91	5
+ERR4650779	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-1_BAC	19.44	2.201275812	37.41697642	209	-13.91	5
+ERR4650780	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-1_BAC	22.39	2.21922434	47.17085873	209	-13.91	5.5
+ERR4650781	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-1_BAC	33.73	2.636016466	78.90258624	209	-13.91	5
+ERR4650782	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-2_BAC	33.48	2.636016466	81.07914717	209	-13.91	5
+ERR4650783	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-1_BAC	22.54	1.917288964	41.28691965	209	-13.91	5
+ERR4650784	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-2_BAC	22.36	1.917288964	42.28037052	209	-13.91	5
+ERR4650785	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-1_BAC	20.64	1.40489626	26.35806069	209	-13.9	5
+ERR4650786	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-2_BAC		1.40489626	25.90649214	209	-13.9	5
+ERR4650787	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-1_BAC	20.53	1.833424065	34.84755087	210	-13.93	5
+ERR4650788	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-2_BAC		1.833424065	36.26999214	210	-13.93	5
+ERR4650789	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-1_BAC	30.79	2.981775155	89.82151572	211	-13.93	5
+ERR4650790	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-1_BAC	34.57	2.813331397	91.61875873	211	-13.93	5
+ERR4650791	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-2_BAC	34.34	2.813331397	94.61717445	211	-13.93	5
+ERR4650792	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-2_BAC		2.743686805	92.2509548	211	-13.93	5
+ERR4650793	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-1_BAC		2.838669242	229.8258528	211	-13.93	5
+ERR4650794	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-1_BAC	72.97	2.071508132	128.7647941	211	-13.93	5
+ERR4650795	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-2_BAC	57.65	2.071508132	128.8957491	211	-13.93	5
+ERR4650796	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-1_BAC	55.66	3.523497858	168.2183452	211	-13.93	5
+ERR4650797	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-2_BAC	38.17	3.523497858	159.5211334	211	-13.93	5
+ERR4650798	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-1_BAC	90.47	3.194860105	300.9208177	211	-13.93	5
+ERR4650799	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-2_BAC	94.29	3.194860105	285.6126413	211	-13.93	5
+ERR4650800	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-1_BAC	40.26	2.669440136	106.1773314	211	-13.93	5
+ERR4650801	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-1_BAC	51.51	2.594901589	136.4866177	211	-13.92	5
+ERR4650802	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-2_BAC	53.79	2.594901589	135.1364275	211	-13.92	5
+ERR4650803	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-2_BAC	69.64	2.610090731	199.1553118	210	-13.92	5
+ERR4650804	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-1_BAC	65.09	2.887341793	185.8340373	209	-13.92	5
+ERR4650805	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-1_BAC	75.17	2.701872249	199.6294587	209	-13.92	5
+ERR4650806	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-2_BAC	75.43	2.701872249	203.4000568	209	-13.92	5
+ERR4650807	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-2_BAC	23.83	2.21922434	47.18892162	209	-13.91	5.5
+ERR4650808	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-2_BAC	19.72	2.201275812	39.27743931	209	-13.91	5
+ERR4650809	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-2_BAC	23.38	2.275932918	50.34087052	209	-13.91	5
+ERR4650810	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-1_BAC	35.43	2.743686805	92.72058624	211	-13.93	5
+ERR4650811	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-2_BAC	39.77	2.669440136	101.1739509	211	-13.93	5
+ERR4650812	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-1_BAC	72.56	2.610090731	163.9239275	210	-13.92	5
+ERR4650813	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-1_BAC	23.19	2.275932918	48.43525087	209	-13.91	5
+ERR4650814	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-2_BAC	33.01	2.981775155	96.80728231	211	-13.93	5
+ERR4650815	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-2_BAC	64.1	2.887341793	184.0638882	209	-13.92	5
+ERR4650816	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-2_BAC	80.09	2.838669242	216.0304314	211	-13.93	5
+ERR2348819	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.32299	-133.846	C4		1.885843111		238	-8.76	6.46
+ERR2348820	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.3117	-133.72665	C5		1.983913743		242	-8.71	7.43
+ERR2348822	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.32299	-133.846	D1		1.877328431		238	-8.76	6.78
+ERR2348827	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.3117	-133.72665	D6		1.90157196		242	-8.71	6.95
+ERR2348831	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.32299	-133.846	E4		2.469265951		238	-8.76	8.38
+ERR2348833	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.3117	-133.72665	E6		2.166413285		242	-8.71	7.2
+ERR4404440	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.53515	86.633933	SIL1AWT		3.9		510	-8.42	7.06
+ERR4404443	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.53515	86.633933	SIL1BWT		2.6		510	-8.42	7.11
+ERR4404446	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	200	67.51375	86.591957	SIL2AWT				510	-8.32	7.3
+ERR4404449	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	200	67.51375	86.591957	SIL2BWT	10.12	3.6		510	-8.32	6.86
+ERR4404462	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	400	67.52592	86.618864	SIL3AWT	2.606	2.6		509	-8.38	7.7
+ERR4404465	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	400	67.52592	86.618864	SIL3BWT	7.3885	1.1		509	-8.38	7.7
+ERR4404468	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.524153	86.613244	SIL4AWT	10.19	4.6		509	-8.38	7.01
+ERR4404471	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.524153	86.613244	SIL4BWT	10.41	4.5		509	-8.38	6.29
+ERR4404472	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.50515	86.603707	SIL5AWT				507	-8.32	
+ERR4404473	Russia	Europe	Russia	Northwestern Siberia	Pan-Arctic	SIL	Northwestern Siberian	100	67.50515	86.603707	SIL5BWT				507	-8.32	
+ERR1742940	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	55	55.226528	-77.696917	SAS 2A	12.3	0.623	70.8	644	-3.79	6.25
+ERR1742941	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	15	55.226639	-77.696472	B1-B2	28	1.338	148.8	644	-3.79	4.86
+ERR1742942	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	15	55.226667	-77.69675	SAS 2B	18.6	0.967	109.2	644	-3.79	6.04
+ERR1742943	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	25	55.226806	-77.695611	SAS 2C	12.6	0.621	69.5	644	-3.79	6.38
+ERR1742944	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	45	55.226806	-77.694444	SAS 2D	12.3	0.447	49.2	644	-3.79	6.16
+ERR1742945	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	15	55.225667	-77.697167	G1	30	1.451	159.4	644	-3.79	4.5
+ERR1742946	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	10	55.225167	-77.697111	I1-I2	37	1.953	232.7	644	-3.79	6.21
+ERR1742949	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	15	55.226111	-77.696472	C2-C4	21	1.056	118.9	644	-3.79	4.87
+ERR1742958	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	0	55.225667	-77.695833	I3	34	1.604	175.3	644	-3.79	4.75
+ERR1742960	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	0	55.225611	-77.695889	J1 (B4)	27	1.237	136.7	644	-3.79	4.24
+ERR1742965	Canada	North America	Canada	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	0	55.226417	-77.695722	C5	39	1.888	208.9	644	-3.79	4.44
+SRR1515998	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.2	BGR_A_Small	3.5			593	-4.08	7.38
+SRR1515999	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.216	BGR_B_Small	8.6	5.13		589	-4.07	7.3
+SRR1516000	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.215	BGR_C_Small				589	-4.07	
+SRR1516001	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.214	BGR_D_Small	6.4	4.38		589	-4.07	6.6
+SRR1516002	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.217	BGR_F_Small	3.1	8.19		589	-4.07	6.6
+SRR1516003	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.2166	BGR_G_Small	1.95	6.16		592	-4.08	6.5
+SRR1516004	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.2163	BGR_H_Small	5.3	5.7		589	-4.07	6.7
+SRR1516005	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.3	-77.5	KWK_1_Small	12	4.66		589	-4.07	6.7
+SRR1516006	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.3	-77.503	KWK_11_Small	12	5.67		644	-3.73	6.8
+SRR1516007	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.3	-77.504	KWK_12_Small	9.3	4.67		641	-3.72	8.3
+SRR1516008	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.329	-77.503	KWK_17_Small	10	5.48		641	-3.72	6
+SRR1516009	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.329	-77.504	KWK_19_Small	11.2	5.5		641	-3.71	5.8
+SRR1516010	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.332	-77.503	KWK_22_Small	11.3	6.96		641	-3.71	6.2
+SRR1516011	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.332	-77.502	KWK_23_Small	7.8			641	-3.71	6.44
+SRR1516012	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.332	-77.502	KWK_33_Small	13.4	5.78		641	-3.71	6.3
+SRR1516013	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.332	-77.5021	KWK_6_Small	5.2	2.36		641	-3.71	6.4
+SRR1516014	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	KWK	Quebec sporadic permafrost zone	50	55.332	-77.504	KWK_7_Small	10.3	6.54		641	-3.71	6.4
+SRR1516015	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.219	-77.708	SAS_1a_Small	9.9	6.46		641	-3.71	6.4
+SRR1516016	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.219	-77.708	SAS_1b_Small	15.5	6.47		644	-3.74	6
+SRR1516017	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.225	-77.696	SAS_2b_Small	17.4	6.03		644	-3.74	5.8
+SRR1516018	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.225	-77.695	SAS_2c_Small	23	5.49		643	-3.76	6.1
+SRR1516019	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.218	-77.707	SAS_1e_Small				643	-3.76	6.3
+SRR1516020	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	SAS	Quebec sporadic permafrost zone	50	55.219	-77.707	SAS_1h_Small				644	-3.74	5.9
+SRR1516021	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.378	NAS_A_Small	3	4.44		644	-3.74	7
+SRR1516022	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.379	NAS_B_Small	1.5	8.75		569	-3.92	7
+SRR1516023	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.922	-76.379	NAS_C_Small	2.7	6.45		569	-3.92	6.9
+SRR1516024	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.38	NAS_D_Small	5.7	6.68		569	-3.92	7.3
+SRR1516025	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.924	-76.377	NAS_E_Small	4.4	6.56		569	-3.92	7.2
+SRR1516026	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.379	NAS_F_Small				569	-3.92	
+SRR1516027	Canada	North America	Canada: Kujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.38	NAS_G_Small	4.5	6.88		569	-3.92	7.3
+SRR1516028	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.924	-76.377	NAS_H_Small	4.1	5.81		569	-3.92	7.5
+SRR1516029	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	NAS	Quebec sporadic permafrost zone	50	56.923	-76.3772	NAS_I_Small	7.3	6.79		569	-3.92	7.3
+SRR1516030	Canada	North America	Canada: Kuujjuarapik	Quebec sporadic permafrost zone	Pan-Arctic	BGR	Quebec sporadic permafrost zone	50	56.6	-76.2141	BGR_E_Small	14.3	6.55		569	-3.92	6.5
+SRR1005844	Canada	North America	Canada: Bylot Island	Bylot Island	Pan-Arctic	BI	Bylot Island	0-2.5	73.15	-79.97	BYL38	12.2		72.9	195	-14	
+SRR1005845	Canada	North America	Canada: Bylot Island	Bylot Island	Pan-Arctic	BI	Bylot Island	0-2.5	73.15	-79.97	BYL22	8.1		19.6	195	-14	7.2
+SRR1005846	Canada	North America	Canada: Bylot Island	Bylot Island	Pan-Arctic	BI	Bylot Island	0-2.5	73.15	-79.97	BYL24	11.5		37	195	-14	7.1
+SRR1005847	Canada	North America	Canada: Bylot Island	Bylot Island	Pan-Arctic	BI	Bylot Island	0-2.5	73.15	-79.97	BYL27	11.8			195	-14	6.6
+SRR965654	Canada	North America	Canada: Bylot Island	Bylot Island	Pan-Arctic	BI	Bylot Island	0-2.5	73.15	-79.97	BYL1	8.4		13.1	195	-14	8.7
+ERR3265536	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.15	-50.07942	DWP1_Bacteria				228	-6.32	8.4
+ERR3265537	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.15	-50.07942	DWP2_Bacteria				228	-6.32	8.4
+ERR3265538	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.15	-50.07942	DWP3_Bacteria				228	-6.32	8.4
+ERR3265554	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.13	-50.17968	TLM1_Bacteria				237	-5.89	8.4
+ERR3265555	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.13	-50.17968	TLM2_Bacteria				237	-5.89	8.4
+ERR3265556	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	10	67.13	-50.17968	TLM3_Bacteria				237	-5.89	8.4
+ERR3265557	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	2	67.13	-50.1782	TLU1_Bacteria				237	-5.89	8.3
+ERR3265558	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	2	67.13	-50.1782	TLU2_Bacteria				237	-5.89	8.3
+ERR3265559	Greenland	North America	Greenland	Greenland	Pan-Arctic	GI	Greenland	2	67.13	-50.1782	TLU3_Bacteria				237	-5.89	8.3
+Z1.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z1	QL	0-20	37.76445	100.7974611	Z1.H1	10.85929846	3.757148783	37.5389	411.67	1.33	8.16
+Z1.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z1	QL	0-20	37.76445	100.7974611	Z1.H2	12.96129326	5.593577629	65.8658	411.67	1.33	7.64
+Z1.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z1	QL	0-20	37.76445	100.7974611	Z1.H3	7.260152689	4.931025769	31.0905	411.67	1.33	7.37
+Z1.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z1	QL	0-20	37.76445	100.7974611	Z1.H4	7.83048428	3.971657293	26.9451	411.67	1.33	7.64
+Z10.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z10	QZR	0-20	35.35496111	93.35838889	Z10.H1	4.12066475	1.383271959	3.9151	265.63	-2.87	9.19
+Z10.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z10	QZR	0-20	35.35496111	93.35838889	Z10.H2	2.935125901	1.601294172	3.2242	265.63	-2.87	8.96
+Z10.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z10	QZR	0-20	35.35496111	93.35838889	Z10.H3	4.092483027	2.125848768	7.3696	265.63	-2.87	9.28
+Z10.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z10	QZR	0-20	35.35496111	93.35838889	Z10.H4	2.230387289	2.779786287	3.4545	265.63	-2.87	8.76
+Z11.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z11	QZR	0-20	35.20536667	93.10117778	Z11.H1	9.412864807	2.358474328	19.1149	292.97	-4.13	8.99
+Z11.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z11	QZR	0-20	35.20536667	93.10117778	Z11.H2	25.61862653	0.991466111	22.3391	292.97	-4.13	8.98
+Z11.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z11	QZR	0-20	35.20536667	93.10117778	Z11.H3	15.44920412	1.605260686	20.9573	292.97	-4.13	8.97
+Z11.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z11	QZR	0-20	35.20536667	93.10117778	Z11.H4	28.24377969	0.509846775	10.8241	292.97	-4.13	8.67
+Z12.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z12	QZR	0-20	35.10845278	93.03587778	Z12.H1	13.86660361	1.471160536	9.9029	302.5	-4.43	8.67
+Z12.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z12	QZR	0-20	35.10845278	93.03587778	Z12.H2	13.36277893	0.912983749	8.9817	302.5	-4.43	8.07
+Z12.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z12	QZR	0-20	35.10845278	93.03587778	Z12.H3	23.06254669	1.140377095	12.4362	302.5	-4.43	8.63
+Z12.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z12	QZR	0-20	35.10845278	93.03587778	Z12.H4	42.45509179	0.296784189	4.606	302.5	-4.43	8.82
+Z13.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z13	QZR	0-20	34.98304722	92.99610833	Z13.H1	6.696273808	0.612280817	1.1515	303.83	-4.2	9.31
+Z13.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z13	QZR	0-20	34.98304722	92.99610833	Z13.H2	5.464979377	0.750231559	2.5333	303.83	-4.2	9.17
+Z13.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z13	QZR	0-20	34.98304722	92.99610833	Z13.H3	5.924441675	0.388222237	0.6909	303.83	-4.2	8.94
+Z13.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z13	QZR	0-20	34.98304722	92.99610833	Z13.H4	2.032968575	0.541080671	0.4606	303.83	-4.2	9.13
+Z14.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z14	QZR	0-20	34.89500556	92.94111389	Z14.H1	14.61880875	0.458313678	2.7636	306.9	-4.03	10.1
+Z14.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z14	QZR	0-20	34.89500556	92.94111389	Z14.H2	18.58013733	0.468241964	4.606	306.9	-4.03	9.79
+Z14.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z14	QZR	0-20	34.89500556	92.94111389	Z14.H3	15.36570996	0.279843887	1.8424	306.9	-4.03	8.81
+Z14.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z14	QZR	0-20	34.89500556	92.94111389	Z14.H4	18.99174202	1.669146514	19.5755	306.9	-4.03	9.47
+Z15.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z15	QZR	0-20	34.82599444	92.94858333	Z15.H1	5.334849722	2.286849797	7.3696	306.9	-4.03	8.81
+Z15.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z15	QZR	0-20	34.82599444	92.94858333	Z15.H2	8.202663895	1.49951286	7.5999	306.9	-4.03	9.51
+Z15.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z15	QZR	0-20	34.82599444	92.94858333	Z15.H3	7.172894449	1.296547728	5.5272	306.9	-4.03	8.31
+Z15.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z15	QZR	0-20	34.82599444	92.94858333	Z15.H4	4.275040953	0.77192243	2.5333	306.9	-4.03	8.82
+Z15.H5	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z15	QZR	0-20	34.82599444	92.94858333	Z15.H5	5.041422501	1.309154311	3.4545	306.9	-4.03	8.82
+Z16.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z16	QZR	0-20	34.4648	92.72076944	Z16.H1	5.499858232	0.581833179	1.1515	309.23	-3.57	8.65
+Z16.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z16	QZR	0-20	34.4648	92.72076944	Z16.H2	5.949543695	0.806784561	3.2242	309.23	-3.57	8.84
+Z16.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z16	QZR	0-20	34.4648	92.72076944	Z16.H3	6.63050016	0.422290918	1.3818	309.23	-3.57	8.57
+Z16.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z16	QZR	0-20	34.4648	92.72076944	Z16.H4	14.14370352	0.212108519	1.3818	309.23	-3.57	8.9
+Z17.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z17	QZR	0-20	34.38382222	92.82587778	Z17.H1	3.390359718	2.212154646	5.0666	320.1	-3.53	9.45
+Z17.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z17	QZR	0-20	34.38382222	92.82587778	Z17.H2	3.813012237	1.494881119	3.6848	320.1	-3.53	8.52
+Z17.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z17	QZR	0-20	34.38382222	92.82587778	Z17.H3	4.277778467	0.888311545	2.303	320.1	-3.53	9.65
+Z17.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z17	QZR	0-20	34.38382222	92.82587778	Z17.H4	5.364229107	1.528644627	5.7575	320.1	-3.53	10.01
+Z18.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z18	QZR	0-20	34.29016389	92.99989167	Z18.H1	3.204306573	1.310736006	2.7636	331.97	-3.27	9.1
+Z18.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z18	QZR	0-20	34.29016389	92.99989167	Z18.H2	3.381902757	0.768797978	1.3818	331.97	-3.27	9.32
+Z18.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z18	QZR	0-20	34.29016389	92.99989167	Z18.H3	5.562014451	0.701184802	2.303	331.97	-3.27	9.05
+Z18.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z18	QZR	0-20	34.29016389	92.99989167	Z18.H4	10.48560344	0.190737711	0.9212	331.97	-3.27	9.1
+Z19.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z19	QZR	0-20	34.29619444	92.66286944	Z19.H1	16.67922756	0.953281556	4.1454	311.37	-3.3	9.59
+Z19.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z19	QZR	0-20	34.29619444	92.66286944	Z19.H2	2.73961367	1.168047902	1.6121	311.37	-3.3	8.35
+Z19.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z19	QZR	0-20	34.29619444	92.66286944	Z19.H3	11.74551955	0.19581935	0.4606	311.37	-3.3	9.39
+Z19.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z19	QZR	0-20	34.29619444	92.66286944	Z19.H4	5.826306707	0.257452976	0.4606	311.37	-3.3	8.78
+Z2.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z2	QL	0-20	37.72274167	100.5625417	Z2.H1	8.96044183	5.245277062	43.9873	413.67	0.83	7.9
+Z2.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z2	QL	0-20	37.72274167	100.5625417	Z2.H2	8.348778674	6.036811127	49.2842	413.67	0.83	7.56
+Z2.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z2	QL	0-20	37.72274167	100.5625417	Z2.H3	8.768278165	6.204182735	50.8963	413.67	0.83	7.6
+Z2.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z2	QL	0-20	37.72274167	100.5625417	Z2.H4	9.1470327	7.565294918	69.3203	413.67	0.83	7.83
+Z20.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z20	QZR	0-20	34.27698056	92.48201389	Z20.H1	4.966311977	1.409496631	4.1454	295.67	-3.3	9.14
+Z20.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z20	QZR	0-20	34.27698056	92.48201389	Z20.H2	5.222049503	0.880880198	2.7636	295.67	-3.3	8.74
+Z20.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z20	QZR	0-20	34.27698056	92.48201389	Z20.H3	6.234587281	1.52375764	5.5272	295.67	-3.3	9.16
+Z20.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z20	QZR	0-20	34.27698056	92.48201389	Z20.H4	6.15119089	1.446874298	7.1393	295.67	-3.3	9.83
+Z21.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z21	QZR	0-20	34.11014722	92.39175	Z21.H1	7.07204641	1.880643767	10.1332	302.47	-3.1	8.11
+Z21.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z21	QZR	0-20	34.11014722	92.39175	Z21.H2	6.603149467	1.832458899	9.212	302.47	-3.1	7.69
+Z21.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z21	QZR	0-20	34.11014722	92.39175	Z21.H3	6.635999629	1.883664964	9.4423	302.47	-3.1	7.73
+Z21.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z21	QZR	0-20	34.11014722	92.39175	Z21.H4	6.080919898	1.907606118	9.212	302.47	-3.1	7.81
+Z22.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z22	QZR	0-20	34.06011111	92.31974167	Z22.H1	14.11708609	2.373010959	27.8663	313.73	-2.9	8.77
+Z22.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z22	QZR	0-20	34.06011111	92.31974167	Z22.H2	12.29610194	2.236481134	22.5694	313.73	-2.9	8.52
+Z22.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z22	QZR	0-20	34.06011111	92.31974167	Z22.H3	13.15240591	1.528237505	16.8119	313.73	-2.9	8.43
+Z22.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z22	QZR	0-20	34.06011111	92.31974167	Z22.H4	14.2816302	1.477422374	17.2725	313.73	-2.9	8.11
+Z23.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z23	QZR	0-20	33.8441	92.35836	Z23.H1	10.04009757	1.543809698	12.8968	336.63	-2.8	9.21
+Z23.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z23	QZR	0-20	33.8441	92.35836	Z23.H2	8.284276014	0.893258504	6.2181	336.63	-2.8	8.72
+Z23.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z23	QZR	0-20	33.8441	92.35836	Z23.H3	8.036262187	0.908382508	5.9878	336.63	-2.8	8.34
+Z23.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z23	QZR	0-20	33.8441	92.35836	Z23.H4	9.994317547	0.720409369	5.9878	336.63	-2.8	9.43
+Z24.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z24	QZR	0-20	33.745276	92.17572	Z24.H1	9.00172451	1.710783304	12.8968	343.6	-2.77	8.46
+Z24.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z24	QZR	0-20	33.745276	92.17572	Z24.H2	7.629692559	1.690762754	11.0544	343.6	-2.77	8.23
+Z24.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z24	QZR	0-20	33.745276	92.17572	Z24.H3	10.50461938	1.513619811	12.6665	343.6	-2.77	8.32
+Z24.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z24	QZR	0-20	33.745276	92.17572	Z24.H4	10.70389569	1.803081846	15.4301	343.6	-2.77	8.32
+Z25.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z25	QZR	0-20	32.68784722	91.87671111	Z25.H1	12.56511151	1.3927453	12.4362	439.1	-1.9	10.06
+Z25.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z25	QZR	0-20	32.68784722	91.87671111	Z25.H2	14.83106381	1.773305026	19.3452	439.1	-1.9	9.42
+Z25.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z25	QZR	0-20	32.68784722	91.87671111	Z25.H3	11.00683088	1.599007034	11.2847	439.1	-1.9	9.58
+Z25.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z25	QZR	0-20	32.68784722	91.87671111	Z25.H4	6.495702066	1.693427422	7.5999	439.1	-1.9	10.15
+Z26.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z26	QZR	0-20	32.57216111	91.85865556	Z26.H1	9.25621549	1.890621498	12.4362	444.93	-1.8	9.64
+Z26.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z26	QZR	0-20	32.57216111	91.85865556	Z26.H2	13.38059721	1.973006106	18.1937	444.93	-1.8	10.13
+Z26.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z26	QZR	0-20	32.57216111	91.85865556	Z26.H3	11.55445578	2.587746284	23.4906	444.93	-1.8	8.66
+Z26.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z26	QZR	0-20	32.57216111	91.85865556	Z26.H4	17.38807244	3.358624149	47.2115	444.93	-1.8	7.83
+Z27.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z27	QZR	0-20	32.900936	91.94164	Z27.H1	3.213472355	1.431473338	4.1454	418.6	-2.13	8.64
+Z27.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z27	QZR	0-20	32.900936	91.94164	Z27.H2	7.404141007	2.066411213	11.2847	418.6	-2.13	8.52
+Z27.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z27	QZR	0-20	32.900936	91.94164	Z27.H3	6.437358811	2.345682514	11.7453	418.6	-2.13	9.66
+Z27.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z27	QZR	0-20	32.900936	91.94164	Z27.H4	3.810201397	1.994645219	5.9878	418.6	-2.13	8.71
+Z27.H5	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z27	QZR	0-20	32.900936	91.94164	Z27.H5	6.065888016	2.027732785	8.9817	418.6	-2.13	8.55
+Z28.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z28	QZR	0-20	32.41256944	91.80465278	Z28.H1	5.530141974	1.066880385	3.9151	449.8	-1.7	8.45
+Z28.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z28	QZR	0-20	32.41256944	91.80465278	Z28.H2	5.806093104	1.188406709	5.0666	449.8	-1.7	8.3
+Z28.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z28	QZR	0-20	32.41256944	91.80465278	Z28.H3	4.806349871	1.061096287	3.2242	449.8	-1.7	8.79
+Z28.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z28	QZR	0-20	32.41256944	91.80465278	Z28.H4	3.713348752	1.508072733	3.6848	449.8	-1.7	8.52
+Z29.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z29	QZR	0-20	32.785564	91.90328	Z29.H1	6.160135806	1.67204106	7.5999	433.83	-1.97	8.36
+Z29.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z29	QZR	0-20	32.785564	91.90328	Z29.H2	6.212454087	1.738443431	7.1393	433.83	-1.97	8.45
+Z29.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z29	QZR	0-20	32.785564	91.90328	Z29.H3	5.878562997	1.17375624	5.2969	433.83	-1.97	8.07
+Z29.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z29	QZR	0-20	32.785564	91.90328	Z29.H4	6.934975202	1.153572979	5.5272	433.83	-1.97	7.91
+Z3.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z3	QL	0-20	38.82809722	98.97344722	Z3.H1	7.470281286	3.882049268	23.2603	293.67	-0.03	8.72
+Z3.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z3	QL	0-20	38.82809722	98.97344722	Z3.H2	8.716240967	3.877818446	22.5694	293.67	-0.03	9.69
+Z3.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z3	QL	0-20	38.82809722	98.97344722	Z3.H3	12.27982351	3.973998483	27.636	293.67	-0.03	10.18
+Z3.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z3	QL	0-20	38.82809722	98.97344722	Z3.H4	9.08639189	3.730853832	23.7209	293.67	-0.03	10.79
+Z30.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z30	QZR	0-20	32.088425	91.672575	Z30.H1	12.74344096	1.867627439	17.2725	456.73	-1.27	8.05
+Z30.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z30	QZR	0-20	32.088425	91.672575	Z30.H2	14.05825399	1.664502577	16.8119	456.73	-1.27	8.13
+Z30.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z30	QZR	0-20	32.088425	91.672575	Z30.H3	7.573695744	1.46559888	7.8302	456.73	-1.27	8.2
+Z30.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z30	QZR	0-20	32.088425	91.672575	Z30.H4	9.242601249	1.114404887	7.1393	456.73	-1.27	8.5
+Z31.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z31	QZR	0-20	31.558526	91.940592	Z31.H1	32.0150955	2.398868371	58.7265	455.77	-0.4	9.82
+Z31.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z31	QZR	0-20	31.558526	91.940592	Z31.H2	26.59794751	3.180696554	69.3203	455.77	-0.4	8.44
+Z31.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z31	QZR	0-20	31.558526	91.940592	Z31.H3	28.20464791	3.55969698	80.8353	455.77	-0.4	8.62
+Z31.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z31	QZR	0-20	31.558526	91.940592	Z31.H4	45.78156167	2.27165689	87.2837	455.77	-0.4	8.36
+Z31.H5	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z31	QZR	0-20	31.558526	91.940592	Z31.H5	45.54249364	3.0894224	116.0712	455.77	-0.4	8.54
+Z32.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z32	QZR	0-20	31.17636111	91.76211944	Z32.H1	13.16037403	2.765878835	28.0966	475.6	0.07	7.95
+Z32.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z32	QZR	0-20	31.17636111	91.76211944	Z32.H2	17.64195237	2.641431006	32.7026	475.6	0.07	9.67
+Z32.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z32	QZR	0-20	31.17636111	91.76211944	Z32.H3	15.83167385	2.438150278	29.2481	475.6	0.07	8.27
+Z32.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z32	QZR	0-20	31.17636111	91.76211944	Z32.H4	21.2016975	3.046925841	48.5933	475.6	0.07	8
+Z33.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z33	QZR	0-20	31.30514722	91.836175	Z33.H1	19.11527232	3.274868334	54.1205	464.9	-0.13	8.14
+Z33.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z33	QZR	0-20	31.30514722	91.836175	Z33.H2	20.28736802	2.030820359	33.3935	464.9	-0.13	8.55
+Z33.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z33	QZR	0-20	31.30514722	91.836175	Z33.H3	19.52734141	3.472054826	58.4962	464.9	-0.13	8.13
+Z33.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z33	QZR	0-20	31.30514722	91.836175	Z33.H4	18.80532225	2.414210158	39.8419	464.9	-0.13	8.12
+Z34.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z34	QZR	0-20	31.64054444	92.06413333	Z34.H1	10.55433458	2.302371582	17.2725	460.5	-0.47	10.6
+Z34.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z34	QZR	0-20	31.64054444	92.06413333	Z34.H2	8.402037976	1.832888645	11.0544	460.5	-0.47	8.41
+Z34.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z34	QZR	0-20	31.64054444	92.06413333	Z34.H3	13.84700106	3.271466493	36.1571	460.5	-0.47	8.85
+Z34.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z34	QZR	0-20	31.64054444	92.06413333	Z34.H4	13.11266308	2.775942596	28.7875	460.5	-0.47	10.23
+Z35.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z35	QZR	0-20	31.84295	92.08031667	Z35.H1	11.19789465	2.696935534	23.7209	464	-0.83	9.99
+Z35.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z35	QZR	0-20	31.84295	92.08031667	Z35.H2	13.26897021	2.509614497	26.4845	464	-0.83	9.92
+Z35.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z35	QZR	0-20	31.84295	92.08031667	Z35.H3	13.4442444	2.71491643	28.7875	464	-0.83	9.14
+Z35.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z35	QZR	0-20	31.84295	92.08031667	Z35.H4	11.46533994	3.026512967	29.4784	464	-0.83	8.34
+Z36.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z36	QZR	0-20	31.366984	91.986672	Z36.H1	21.72444036	2.688216545	42.8358	466.87	-0.13	9.68
+Z36.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z36	QZR	0-20	31.366984	91.986672	Z36.H2	11.64911997	3.691265959	38.4601	466.87	-0.13	9.39
+Z36.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z36	QZR	0-20	31.366984	91.986672	Z36.H3	38.8792882	3.863239451	121.1378	466.87	-0.13	9.93
+Z36.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z36	QZR	0-20	31.366984	91.986672	Z36.H4	17.64263675	2.295575235	27.636	466.87	-0.13	10.34
+Z37.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z37	QZR	0-20	31.72627778	91.80868056	Z37.H1	12.03249406	3.191358318	33.3935	456.53	-0.77	8.2
+Z37.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z37	QZR	0-20	31.72627778	91.80868056	Z37.H2	10.26322936	2.796390785	24.4118	456.53	-0.77	8.19
+Z37.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z37	QZR	0-20	31.72627778	91.80868056	Z37.H3	16.44001288	3.278586239	45.1388	456.53	-0.77	8.66
+Z37.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z37	QZR	0-20	31.72627778	91.80868056	Z37.H4	11.36603175	2.824204674	24.8724	456.53	-0.77	9.68
+Z38.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z38	MD	0-20	34.91847222	98.51706667	Z38.H1	8.079231371	1.312005996	6.6787	351.43	-1.87	10.25
+Z38.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z38	MD	0-20	34.91847222	98.51706667	Z38.H2	12.27175762	1.703097522	11.0544	351.43	-1.87	10.06
+Z38.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z38	MD	0-20	34.91847222	98.51706667	Z38.H3	9.900753249	1.656439625	7.8302	351.43	-1.87	9.46
+Z38.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z38	MD	0-20	34.91847222	98.51706667	Z38.H4	7.704631989	0.804710726	3.9151	351.43	-1.87	10.84
+Z39.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z39	MD	0-20	34.71901667	99.08158333	Z39.H1	14.64019557	2.479475074	27.1754	409.03	-1.03	8.09
+Z39.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z39	MD	0-20	34.71901667	99.08158333	Z39.H2	16.57815954	2.400749004	27.8663	409.03	-1.03	8.34
+Z39.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z39	MD	0-20	34.71901667	99.08158333	Z39.H3	11.71770446	2.517557949	22.7997	409.03	-1.03	8.18
+Z39.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z39	MD	0-20	34.71901667	99.08158333	Z39.H4	12.00062158	2.541535019	23.4906	409.03	-1.03	8.17
+Z40.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z40	MD	0-20	34.76693056	98.11316667	Z40.H1	4.270641378	2.177658852	7.3696	358.87	-2.93	8.62
+Z40.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z40	MD	0-20	34.76693056	98.11316667	Z40.H2	4.774857132	2.157132604	8.0605	358.87	-2.93	8.62
+Z40.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z40	MD	0-20	34.76693056	98.11316667	Z40.H3	4.772632902	2.304807477	8.7514	358.87	-2.93	8.62
+Z40.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z40	MD	0-20	34.76693056	98.11316667	Z40.H4	4.534982518	1.962521347	7.1393	358.87	-2.93	8.9
+Z41.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z41	MD	0-20	34.58252778	97.99160278	Z41.H1	24.64737143	2.588511322	45.1388	389.67	-3.07	8.38
+Z41.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z41	MD	0-20	34.58252778	97.99160278	Z41.H2	27.87854163	2.467847885	49.7448	389.67	-3.07	8.19
+Z41.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z41	MD	0-20	34.58252778	97.99160278	Z41.H3	28.39417183	2.102544154	43.5267	389.67	-3.07	8.27
+Z41.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z41	MD	0-20	34.58252778	97.99160278	Z41.H4	28.72435995	2.161928068	46.5206	389.67	-3.07	8.2
+Z42.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z42	MD	0-20	34.24403056	97.84098333	Z42.H1	14.23235496	2.936970032	32.9329	436.73	-3.17	9.22
+Z42.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z42	MD	0-20	34.24403056	97.84098333	Z42.H2	19.68262197	3.205873693	51.1266	436.73	-3.17	9.2
+Z42.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z42	MD	0-20	34.24403056	97.84098333	Z42.H3	20.9389451	3.271415999	56.8841	436.73	-3.17	7.96
+Z42.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z42	MD	0-20	34.24403056	97.84098333	Z42.H4	20.41835315	3.144230073	53.4296	436.73	-3.17	7.84
+Z43.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z43	MD	0-20	34.43639444	97.94691944	Z43.H1	7.489003923	2.243288984	13.818	405.63	-3.1	8.52
+Z43.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z43	MD	0-20	34.43639444	97.94691944	Z43.H2	5.708153673	1.646767158	7.5999	405.63	-3.1	8.29
+Z43.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z43	MD	0-20	34.43639444	97.94691944	Z43.H3	8.561131501	2.324459097	15.6604	405.63	-3.1	8.5
+Z43.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z43	MD	0-20	34.43639444	97.94691944	Z43.H4	6.569077202	2.466099804	12.6665	405.63	-3.1	8.15
+Z44.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z44	MD	0-20	34.67236944	98.09344444	Z44.H1	6.756132472	2.116595561	11.0544	373.97	-2.97	9.86
+Z44.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z44	MD	0-20	34.67236944	98.09344444	Z44.H2	7.315660662	1.530962208	7.3696	373.97	-2.97	7.97
+Z44.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z44	MD	0-20	34.67236944	98.09344444	Z44.H3	6.535713757	1.866666818	9.6726	373.97	-2.97	8.31
+Z44.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z44	MD	0-20	34.67236944	98.09344444	Z44.H4	8.519775495	2.582227667	16.8119	373.97	-2.97	8.12
+Z45.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z45	MD	0-20	34.81506944	98.38938889	Z45.H1	6.331402376	2.4797034	12.2059	350.8	-2.53	9.95
+Z45.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z45	MD	0-20	34.81506944	98.38938889	Z45.H2	5.713628699	2.117743493	9.212	350.8	-2.53	9.99
+Z45.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z45	MD	0-20	34.81506944	98.38938889	Z45.H3	5.641768972	2.765090183	11.7453	350.8	-2.53	9.91
+Z45.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z45	MD	0-20	34.81506944	98.38938889	Z45.H4	6.181401306	3.106091815	17.9634	350.8	-2.53	9.21
+Z46.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z46	MD	0-20	34.55054167	99.14456389	Z46.H1	18.38464954	2.322589828	28.3269	438.87	-1	8.42
+Z46.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z46	MD	0-20	34.55054167	99.14456389	Z46.H2	21.0355891	2.880832085	46.5206	438.87	-1	10.43
+Z46.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z46	MD	0-20	34.55054167	99.14456389	Z46.H3	24.46564453	2.133604121	36.6177	438.87	-1	9.1
+Z46.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z46	MD	0-20	34.55054167	99.14456389	Z46.H4	16.61993106	2.292428281	27.1754	438.87	-1	8.28
+Z47.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z47	MD	0-20	34.130128	99.332976	Z47.H1	18.1499322	3.377423084	48.1327	496.63	-0.87	8.26
+Z47.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z47	MD	0-20	34.130128	99.332976	Z47.H2	21.34927881	3.007127341	47.6721	496.63	-0.87	8.33
+Z47.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z47	MD	0-20	34.130128	99.332976	Z47.H3	22.43924911	3.017035003	52.5084	496.63	-0.87	7.86
+Z47.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z47	MD	0-20	34.130128	99.332976	Z47.H4	19.33310017	2.989691229	41.9146	496.63	-0.87	7.96
+Z48.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z48	MD	0-20	34.26486944	99.201725	Z48.H1	12.24941756	2.604205453	23.2603	479.73	-0.9	9.05
+Z48.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z48	MD	0-20	34.26486944	99.201725	Z48.H2	9.980067812	2.605192719	19.8058	479.73	-0.9	8.32
+Z48.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z48	MD	0-20	34.26486944	99.201725	Z48.H3	19.55112356	2.547168189	36.6177	479.73	-0.9	8.55
+Z48.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z48	MD	0-20	34.26486944	99.201725	Z48.H4	18.71241789	2.501012979	34.0844	479.73	-0.9	8.58
+Z5.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z5	QL	0-20	38.18055556	100.2463889	Z5.H1	6.711672321	3.203374505	16.8119	415.6	0.8	8
+Z5.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z5	QL	0-20	38.18055556	100.2463889	Z5.H2	1.845693327	2.817369454	4.606	415.6	0.8	8.38
+Z5.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z5	QL	0-20	38.18055556	100.2463889	Z5.H3	7.318544828	3.825897177	20.9573	415.6	0.8	8.98
+Z5.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z5	QL	0-20	38.18055556	100.2463889	Z5.H4	15.11178115	3.646161857	41.454	415.6	0.8	7.98
+Z6.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z6	QL	0-20	37.9865	100.83132	Z6.H1	16.03877163	5.817153717	96.0351	388	2.07	8.18
+Z6.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z6	QL	0-20	37.9865	100.83132	Z6.H2	25.23647454	6.676843856	149.2344	388	2.07	8.45
+Z6.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z6	QL	0-20	37.9865	100.83132	Z6.H3	20.52430958	6.036743867	117.6833	388	2.07	8.73
+Z6.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z6	QL	0-20	37.9865	100.83132	Z6.H4	46.04881142	4.849202251	168.5796	388	2.07	8.72
+Z8.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z8	QZR	0-20	35.44319167	93.59556111	Z8.H1	9.885745809	1.315024708	7.5999	238.8	-1.63	9.17
+Z8.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z8	QZR	0-20	35.44319167	93.59556111	Z8.H2	7.604395002	0.999422044	3.2242	238.8	-1.63	8.84
+Z8.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z8	QZR	0-20	35.44319167	93.59556111	Z8.H3	5.149505397	1.126321763	2.5333	238.8	-1.63	9.13
+Z8.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z8	QZR	0-20	35.44319167	93.59556111	Z8.H4	18.24950925	0.73426632	5.9878	238.8	-1.63	9.07
+Z8.H5	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z8	QZR	0-20	35.44319167	93.59556111	Z8.H5	12.53597655	0.350989808	1.3818	238.8	-1.63	8.64
+Z9.H1	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z9	QZR	0-20	35.38131111	93.4487	Z9.H1	5.54006546	1.137170679	2.7636	259.37	-2.4	9.34
+Z9.H2	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z9	QZR	0-20	35.38131111	93.4487	Z9.H2	6.489982618	0.770418088	1.8424	259.37	-2.4	9.25
+Z9.H3	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z9	QZR	0-20	35.38131111	93.4487	Z9.H3	10.5431401	0.388878452	1.8424	259.37	-2.4	9.24
+Z9.H4	China	Asia	Tibet	Tibetan Plateau	Tibetan Plateau	Z9	QZR	0-20	35.38131111	93.4487	Z9.H4	7.211537384	0.596266756	1.8424	259.37	-2.4	9.2
