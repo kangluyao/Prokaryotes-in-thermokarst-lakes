@@ -1,16 +1,10 @@
 # Prokaryotes in thermokarst lakes
 
-## Overview
-
-------------------------------------------------------------------------
-
-> Project repository associated with the following manuscripts
-
-------------------------------------------------------------------------
+> This project repository associated with the following manuscripts:
 
 * Kang et al., (2023).Climatic factors dominate prokaryotic communities in the water of thermokarst lakes across the northern Hemispherical permafrost regions. (**in revision**). 
 
-### Structure
+## Structure
 
 ```
 .
