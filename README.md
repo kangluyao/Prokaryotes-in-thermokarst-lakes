@@ -1,5 +1,4 @@
 # Prokaryotes in thermokarst lakes
-This repository contains R codes and data for microbial community analysis of the manuscript 'Climatic factors dominate prokaryotic communities in the water of thermokarst lakes across the northern Hemispherical permafrost regions'
 
 ## Overview
 
@@ -9,7 +8,7 @@ This repository contains R codes and data for microbial community analysis of th
 
 ------------------------------------------------------------------------
 
-* Kang et al., (2023).[Climatic factors dominate prokaryotic communities in the water of thermokarst lakes across the northern Hemispherical permafrost regions](https://psyarxiv.com/w8vhk/). (*in revision*). 
+* Kang et al., (2023).Climatic factors dominate prokaryotic communities in the water of thermokarst lakes across the northern Hemispherical permafrost regions. (**in revision**). 
 
 ### Structure
 
