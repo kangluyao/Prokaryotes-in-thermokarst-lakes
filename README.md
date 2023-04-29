@@ -11,7 +11,7 @@
 ├── script                                  <-- R codes for the statistical analysis
     ├── 2_composition_analysis.R            <-- codes for taxonomic compositional analysis
     ├── 3_Comparison between PA & TP.R      <-- codes for comparison analysis between pan-Arctic and Tibetan Plateau
-    └── 5_cor_DOM_taxa_fun.R                <-- test the relationship between the dominant taxa and DOM properties
+    ├── 5_cor_DOM_taxa_fun.R                <-- test the relationship between the dominant taxa and DOM properties
     ├── 6_LCBD_analysis.R                   <-- codes for LCBD analysis
     └── FARPROTAX.R                         <-- codes for functional groups analysis
 └── data1                     
