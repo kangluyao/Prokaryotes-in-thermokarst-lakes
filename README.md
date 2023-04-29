@@ -9,7 +9,6 @@
 ```
 .
 ├── script                                  <-- R codes for the statistical analysis
-    ├── qiime2
     ├── 2_composition_analysis.R            <-- codes for taxonomic compositional analysis
     ├── 3_Comparison between PA & TP.R      <-- codes for comparison analysis between pan-Arctic and Tibetan Plateau
     └── 5_cor_DOM_taxa_fun.R                <-- test the relationship between the dominant taxa and DOM properties
