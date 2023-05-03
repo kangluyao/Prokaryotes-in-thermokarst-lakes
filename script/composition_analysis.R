@@ -16,16 +16,17 @@ ipak(pkgs)
 
 #conduct a phyloseq project
 #read in metadata
-metadata <- read.csv("./meta_analysis/data1/meta_data/sample_data.csv",
+metadata <- read.delim("./meta_analysis/data1/meta_data/sample_data.txt",
                      header = T, row.names = 1)
 
 #read in otu table
-meta.otu.table <- read.csv("./meta_analysis/data1/meta_data/meta_otu_table.csv",
+meta.otu.table <- read.delim("./meta_analysis/data1/meta_data/meta_otu_table.txt",
                            header = T, row.names = 1, stringsAsFactors = F)
 meta.otu.table <- as.matrix(meta.otu.table)
 
 #read in taxonomy
-meta.taxonomy <- read.csv("./meta_analysis/data1/meta_data/taxonomy.csv", sep=",", row.names=1)
+meta.taxonomy <- read.delim("./meta_analysis/data1/meta_data/taxonomy.txt",
+                            header = T, row.names = 1, stringsAsFactors = F)
 meta.taxonomy <- as.matrix(meta.taxonomy)
 
 # read in tree
