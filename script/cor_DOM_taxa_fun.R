@@ -95,7 +95,7 @@ main_theme <- theme_bw() +
 
 # spearman
 test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = 'value') %>%
-  mutate(env_name = factor(env_name, levels = c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))) %>%
+  mutate(env_name = factor(env_name, levels = c('MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))) %>%
   mutate(Abund = Abund * 100) %>%
   ggplot(aes(x = value, y = Abund)) +
   geom_point(shape = 19, size = 1, colour ='tomato3', alpha = 0.8) +
