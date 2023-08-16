@@ -34,17 +34,87 @@ outlierKD <- function(dt, var) {
 DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))
 DOM_env[1:5, 1:3]
 # extract the most abundant 10% of taxa in at least half of the samples at the order level
-# subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
-# subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
+subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
+subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
 f1<- filterfun_sample(topf(0.9))
 wh1 <- genefilter_sample(subphylo.rel, f1, A=(1/2*nsamples(subphylo.rel)))
 sum(wh1)
 meta.com.ord <- prune_taxa(wh1, subphylo.rel)
+domin_tax_names <- as.character(tax_table(meta.com.ord)[, 4])
+domin.com.ord <- subset_taxa(GlobalPatterns, Phylum=="Bacteroidetes")
+
+# The composition of the domiant taxa at the genus level
+top10_order_meta <- arrange.tab(meta_physeq, 10, 'Genus', c(4,6))
+top_domin_order_meta <- subset(top10_order_meta, level1 %in% domin_tax_names)
+mra.tab_level1 = top_domin_order_meta %>% group_by(level1) %>% 
+  summarise(sum_MRA = sum(MRA)) %>% 
+  arrange(desc(sum_MRA))
+mra.tab_level1
+mra.tab_level2 = top_domin_order_meta %>% group_by(level2) %>% 
+  summarise(sum_MRA = sum(MRA)) %>% 
+  arrange(desc(sum_MRA))
+mra.tab_level2 [1:20, ]
+order_level2 = mra.tab_level2$'level2'
+#stack bar plot
+taxa_domin_genus_barplot <- ggplot(top_domin_order_meta, aes(fill=level2, y=MRA, x=level1)) + 
+  geom_bar(position="stack", stat="identity") +
+  scale_fill_manual('Genus', breaks = order_level2[1:25], 
+                    values = rep(c(rev(mycols[1:12]), mycols[-c(1:12)]), 20)[1:nrow(top_domin_order_meta)]) + #only the top 10 phylum and top 10 order are showed
+  labs(x = 'Orders', y = 'Mean relative abundance (%)') +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 30)) +
+  theme_classic()+
+  theme(legend.position = c(0.6, 0.7),
+        panel.grid=element_blank(), 
+        axis.title = element_text(color='black',size=9),
+        axis.ticks.length = unit(0.4,"lines"), axis.ticks = element_line(color='black'),
+        axis.line = element_line(colour = "black"), 
+        axis.text.y = element_text(colour='black',size=8),
+        axis.text.x = element_text(colour='black', size = 8, angle = 45, hjust = 1),
+        legend.text=element_text(size=8),
+        legend.key.size = unit(0.5, 'cm'),
+        legend.background = element_rect(colour = "white"))
+taxa_domin_genus_barplot
 
 # check the outliers of data and prepare the data for plot
 order_table <- otu_table(meta.com.ord)
 order_table[1:7, 1:5]
 test.dat <- data.frame(Abund = colSums(order_table), DOM_env)
+
+# Frequence distribution of the mean relative abundance of dominant taxa
+plot_df <- data.frame(x1 = rep("abundance", ncol(order_table)), Abund = colSums(order_table) *100)
+source("https://raw.githubusercontent.com/samhforbes/PupillometryR/master/R/geom_flat_violin.R")
+rel_abun_domin_plot <- ggplot(plot_df, aes(x1, Abund)) + 
+  geom_flat_violin(aes(fill = "tomato3"), position = position_nudge(x = .25), color = "black") + 
+  geom_jitter(aes(color = "tomato3"), width = 0.1) + 
+  geom_boxplot(width = .1, position = position_nudge(x = 0.25), fill = "white", size = 0.5) + 
+  labs(x = NULL, y = "Mean relative abundance of dominant taxa (%)") +
+  theme_bw() +
+  theme(panel.grid=element_blank(), 
+        axis.title = element_text(color='black',size=9),
+        axis.ticks.length = unit(0.4,"lines"), 
+        axis.ticks = element_line(color='black'),
+        axis.line = element_line(colour = "black"), 
+        axis.text.y = element_text(colour='black',size=8),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        legend.text=element_text(size=8),
+        legend.position = "none")
+rel_abun_domin_plot
+
+# Combining Plots
+library(cowplot)
+domian_genera_plot <- ggdraw() +
+  draw_plot(rel_abun_domin_plot, x = 0, y = 0.18, width = 0.32, height = 0.82) +
+  draw_plot(taxa_domin_genus_barplot, x = 0.38, y = 0, width = 0.62, height = 1) +
+  draw_plot_label(label = c("(a)", "(b)"), size = 9,
+                  x = c(0, 0.35), y = c(1, 1))
+domian_genera_plot
+
+plot.name <- "E:/thermokast_lakes/water_microbes/meta_analysis/results/revision/domian_genera_plot.pdf"
+cairo_pdf(filename = plot.name, width = 7.6, height = 4.5, onefile = TRUE)
+print(domian_genera_plot)
+dev.off()
+# Test the correlation between the relative abundance of dominant taxa and environmental variables
 outlierKD(test.dat, Abund)
 y
 outlierKD(test.dat, pH)
@@ -111,6 +181,7 @@ test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = '
   ylab('Relative abundance of abundant taxa (%)') +
   facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
+
 # other regression models
 source("https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression_plot.R")
 # linear model
