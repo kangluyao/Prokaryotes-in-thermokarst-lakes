@@ -11,8 +11,7 @@
 ├── data1
     ├── qiime2                              <-- output files from the qiime2
         ├── thermokarst-lakes-rep-seqs.qza  <-- represent sequences output file from qiime2
-        ├── thermokarst-lakes-table.qza     <-- otutable output from qiime2
-        └── meta-analysis-DADA2.sh          <-- shell scripts for the bioinformatic analysis
+        └── thermokarst-lakes-table.qza     <-- otutable output from qiime2
     └── meta_data                           <-- relevant data necessary for reproducing results
         ├── meta_otu_table.txt              <-- otu table file
         ├── taxonomy.txt                    <-- taxonomimc table file
