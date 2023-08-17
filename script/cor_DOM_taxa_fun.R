@@ -110,10 +110,10 @@ domian_genera_plot <- ggdraw() +
                   x = c(0, 0.35), y = c(1, 1))
 domian_genera_plot
 
-plot.name <- "E:/thermokast_lakes/water_microbes/meta_analysis/results/revision/domian_genera_plot.pdf"
-cairo_pdf(filename = plot.name, width = 7.6, height = 4.5, onefile = TRUE)
-print(domian_genera_plot)
-dev.off()
+# plot.name <- "E:/thermokast_lakes/water_microbes/meta_analysis/results/revision/domian_genera_plot.pdf"
+# cairo_pdf(filename = plot.name, width = 7.6, height = 4.5, onefile = TRUE)
+# print(domian_genera_plot)
+# dev.off()
 # Test the correlation between the relative abundance of dominant taxa and environmental variables
 outlierKD(test.dat, Abund)
 y
