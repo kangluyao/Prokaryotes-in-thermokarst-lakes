@@ -1,48 +1,48 @@
 	geo_loc_name_country	geo_loc_name_country_continent	geographic_location_.country_and.or_sea.	Sitegroup	Region	Site	Sitegroup1	geographic location depth (cm)	latitude	longitude	Sample_Name	DOC	SUVA254	a320	MAP	MAT	pH
-ERR4650773	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-1_BAC		1.380005965	17.10090393	210	-13.93	NA
-ERR4650774	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-2_BAC	12.49	1.380005965	16.45967642	210	-13.93	NA
-ERR4650775	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-1_BAC	17.98	1.702236509	29.32486659	210	-13.93	NA
-ERR4650776	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-2_BAC	18.43	1.702236509	30.96406069	210	-13.93	NA
-ERR4650777	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-3_BAC	22.03	2.284136136	45.26523931	209	-13.91	NA
-ERR4650778	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-2_BAC	21.03	2.284136136	45.3691	209	-13.91	NA
-ERR4650779	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-1_BAC	19.44	2.201275812	37.41697642	209	-13.91	NA
-ERR4650780	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-1_BAC	22.39	2.21922434	47.17085873	209	-13.91	NA
-ERR4650781	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-1_BAC	33.73	2.636016466	78.90258624	209	-13.91	NA
-ERR4650782	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-2_BAC	33.48	2.636016466	81.07914717	209	-13.91	NA
-ERR4650783	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-1_BAC	22.54	1.917288964	41.28691965	209	-13.91	NA
-ERR4650784	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-2_BAC	22.36	1.917288964	42.28037052	209	-13.91	NA
-ERR4650785	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-1_BAC	20.64	1.40489626	26.35806069	209	-13.9	NA
-ERR4650786	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-2_BAC		1.40489626	25.90649214	209	-13.9	NA
-ERR4650787	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-1_BAC	20.53	1.833424065	34.84755087	210	-13.93	NA
-ERR4650788	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-2_BAC		1.833424065	36.26999214	210	-13.93	NA
-ERR4650789	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-1_BAC	30.79	2.981775155	89.82151572	211	-13.93	NA
-ERR4650790	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-1_BAC	34.57	2.813331397	91.61875873	211	-13.93	NA
-ERR4650791	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-2_BAC	34.34	2.813331397	94.61717445	211	-13.93	NA
-ERR4650792	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-2_BAC		2.743686805	92.2509548	211	-13.93	NA
-ERR4650793	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-1_BAC		2.838669242	229.8258528	211	-13.93	NA
-ERR4650794	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-1_BAC	72.97	2.071508132	128.7647941	211	-13.93	NA
-ERR4650795	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-2_BAC	57.65	2.071508132	128.8957491	211	-13.93	NA
-ERR4650796	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-1_BAC	55.66	3.523497858	168.2183452	211	-13.93	NA
-ERR4650797	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-2_BAC	38.17	3.523497858	159.5211334	211	-13.93	NA
-ERR4650798	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-1_BAC	90.47	3.194860105	300.9208177	211	-13.93	NA
-ERR4650799	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-2_BAC	94.29	3.194860105	285.6126413	211	-13.93	NA
-ERR4650800	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-1_BAC	40.26	2.669440136	106.1773314	211	-13.93	NA
-ERR4650801	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-1_BAC	51.51	2.594901589	136.4866177	211	-13.92	NA
-ERR4650802	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-2_BAC	53.79	2.594901589	135.1364275	211	-13.92	NA
-ERR4650803	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-2_BAC	69.64	2.610090731	199.1553118	210	-13.92	NA
-ERR4650804	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-1_BAC	65.09	2.887341793	185.8340373	209	-13.92	NA
-ERR4650805	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-1_BAC	75.17	2.701872249	199.6294587	209	-13.92	NA
-ERR4650806	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-2_BAC	75.43	2.701872249	203.4000568	209	-13.92	NA
-ERR4650807	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-2_BAC	23.83	2.21922434	47.18892162	209	-13.91	NA
-ERR4650808	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-2_BAC	19.72	2.201275812	39.27743931	209	-13.91	NA
-ERR4650809	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-2_BAC	23.38	2.275932918	50.34087052	209	-13.91	NA
-ERR4650810	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-1_BAC	35.43	2.743686805	92.72058624	211	-13.93	NA
-ERR4650811	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-2_BAC	39.77	2.669440136	101.1739509	211	-13.93	NA
-ERR4650812	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-1_BAC	72.56	2.610090731	163.9239275	210	-13.92	NA
-ERR4650813	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-1_BAC	23.19	2.275932918	48.43525087	209	-13.91	NA
-ERR4650814	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-2_BAC	33.01	2.981775155	96.80728231	211	-13.93	NA
-ERR4650815	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-2_BAC	64.1	2.887341793	184.0638882	209	-13.92	NA
-ERR4650816	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-2_BAC	80.09	2.838669242	216.0304314	211	-13.93	NA
+ERR4650773	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-1_BAC		1.380005965	17.10090393	210	-13.93	5
+ERR4650774	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.8353	147.42729	A01-2_BAC	12.49	1.380005965	16.45967642	210	-13.93	5
+ERR4650775	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-1_BAC	17.98	1.702236509	29.32486659	210	-13.93	5
+ERR4650776	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83535	147.42674	A02-2_BAC	18.43	1.702236509	30.96406069	210	-13.93	5
+ERR4650777	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-3_BAC	22.03	2.284136136	45.26523931	209	-13.91	5
+ERR4650778	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83516	147.4247	A03-2_BAC	21.03	2.284136136	45.3691	209	-13.91	5
+ERR4650779	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-1_BAC	19.44	2.201275812	37.41697642	209	-13.91	5
+ERR4650780	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-1_BAC	22.39	2.21922434	47.17085873	209	-13.91	5.5
+ERR4650781	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-1_BAC	33.73	2.636016466	78.90258624	209	-13.91	5
+ERR4650782	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83483	147.42188	A06-2_BAC	33.48	2.636016466	81.07914717	209	-13.91	5
+ERR4650783	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-1_BAC	22.54	1.917288964	41.28691965	209	-13.91	5
+ERR4650784	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83461	147.41678	A08-2_BAC	22.36	1.917288964	42.28037052	209	-13.91	5
+ERR4650785	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-1_BAC	20.64	1.40489626	26.35806069	209	-13.9	5
+ERR4650786	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83437	147.41602	A09-2_BAC		1.40489626	25.90649214	209	-13.9	5
+ERR4650787	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-1_BAC	20.53	1.833424065	34.84755087	210	-13.93	5
+ERR4650788	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	25	70.83546	147.42735	A10-2_BAC		1.833424065	36.26999214	210	-13.93	5
+ERR4650789	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-1_BAC	30.79	2.981775155	89.82151572	211	-13.93	5
+ERR4650790	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-1_BAC	34.57	2.813331397	91.61875873	211	-13.93	5
+ERR4650791	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01b-2_BAC	34.34	2.813331397	94.61717445	211	-13.93	5
+ERR4650792	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-2_BAC		2.743686805	92.2509548	211	-13.93	5
+ERR4650793	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-1_BAC		2.838669242	229.8258528	211	-13.93	5
+ERR4650794	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-1_BAC	72.97	2.071508132	128.7647941	211	-13.93	5
+ERR4650795	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84338	147.45911	B03-2_BAC	57.65	2.071508132	128.8957491	211	-13.93	5
+ERR4650796	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-1_BAC	55.66	3.523497858	168.2183452	211	-13.93	5
+ERR4650797	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84353	147.4595	B04-2_BAC	38.17	3.523497858	159.5211334	211	-13.93	5
+ERR4650798	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-1_BAC	90.47	3.194860105	300.9208177	211	-13.93	5
+ERR4650799	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.8431	147.45995	B05-2_BAC	94.29	3.194860105	285.6126413	211	-13.93	5
+ERR4650800	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-1_BAC	40.26	2.669440136	106.1773314	211	-13.93	5
+ERR4650801	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-1_BAC	51.51	2.594901589	136.4866177	211	-13.92	5
+ERR4650802	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84169	147.46689	B07-2_BAC	53.79	2.594901589	135.1364275	211	-13.92	5
+ERR4650803	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-2_BAC	69.64	2.610090731	199.1553118	210	-13.92	5
+ERR4650804	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-1_BAC	65.09	2.887341793	185.8340373	209	-13.92	5
+ERR4650805	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-1_BAC	75.17	2.701872249	199.6294587	209	-13.92	5
+ERR4650806	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84089	147.46851	B10-2_BAC	75.43	2.701872249	203.4000568	209	-13.92	5
+ERR4650807	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83487	147.42218	A05-2_BAC	23.83	2.21922434	47.18892162	209	-13.91	5.5
+ERR4650808	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83511	147.42378	A04-2_BAC	19.72	2.201275812	39.27743931	209	-13.91	5
+ERR4650809	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-2_BAC	23.38	2.275932918	50.34087052	209	-13.91	5
+ERR4650810	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01bb-1_BAC	35.43	2.743686805	92.72058624	211	-13.93	5
+ERR4650811	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	30	70.84298	147.46222	B06-2_BAC	39.77	2.669440136	101.1739509	211	-13.93	5
+ERR4650812	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.83977	147.46613	B08-1_BAC	72.56	2.610090731	163.9239275	210	-13.92	5
+ERR4650813	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	A	North_East Siberia	20	70.83504	147.41971	A07-1_BAC	23.19	2.275932918	48.43525087	209	-13.91	5
+ERR4650814	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84275	147.45851	B01-2_BAC	33.01	2.981775155	96.80728231	211	-13.93	5
+ERR4650815	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	25	70.84078	147.46773	B09-2_BAC	64.1	2.887341793	184.0638882	209	-13.92	5
+ERR4650816	Russia	Europe	Russia	Northeastern Siberia	Pan-Arctic	B	North_East Siberia	20	70.84309	147.45889	B02-2_BAC	80.09	2.838669242	216.0304314	211	-13.93	5
 ERR2348819	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.32299	-133.846	C4		1.885843111		238	-8.76	6.46
 ERR2348820	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.3117	-133.72665	C5		1.983913743		242	-8.71	7.43
 ERR2348822	Canada	North America	Canada	Western Canadian Arctic	Pan-Arctic	C	western Canadian Arctic	10	68.32299	-133.846	D1		1.877328431		238	-8.76	6.78
