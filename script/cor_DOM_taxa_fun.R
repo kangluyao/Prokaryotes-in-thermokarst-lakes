@@ -34,14 +34,13 @@ outlierKD <- function(dt, var) {
 DOM_env <-  metadata %>% dplyr::select(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'))
 DOM_env[1:5, 1:3]
 # extract the most abundant 10% of taxa in at least half of the samples at the order level
-subphylo <- tax_glom(meta_physeq, taxrank = 'Order')
-subphylo.rel <- transform_sample_counts(subphylo, function(x) x / sum(x) )
+phylo.rel <- transform_sample_counts(meta_physeq, function(x) x / sum(x))
+subphylo.rel <- tax_glom(phylo.rel, taxrank = 'Order')
 f1<- filterfun_sample(topf(0.9))
 wh1 <- genefilter_sample(subphylo.rel, f1, A=(1/2*nsamples(subphylo.rel)))
 sum(wh1)
 meta.com.ord <- prune_taxa(wh1, subphylo.rel)
 domin_tax_names <- as.character(tax_table(meta.com.ord)[, 4])
-domin.com.ord <- subset_taxa(GlobalPatterns, Phylum=="Bacteroidetes")
 
 # The composition of the domiant taxa at the genus level
 top10_order_meta <- arrange.tab(meta_physeq, 10, 'Genus', c(4,6))
@@ -61,7 +60,7 @@ taxa_domin_genus_barplot <- ggplot(top_domin_order_meta, aes(fill=level2, y=MRA,
   scale_fill_manual('Genus', breaks = order_level2[1:25], 
                     values = rep(c(rev(mycols[1:12]), mycols[-c(1:12)]), 20)[1:nrow(top_domin_order_meta)]) + #only the top 10 phylum and top 10 order are showed
   labs(x = 'Orders', y = 'Mean relative abundance (%)') +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 30)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 25)) +
   theme_classic()+
   theme(legend.position = c(0.6, 0.7),
         panel.grid=element_blank(), 
@@ -110,10 +109,11 @@ domian_genera_plot <- ggdraw() +
                   x = c(0, 0.35), y = c(1, 1))
 domian_genera_plot
 
-# plot.name <- "E:/thermokast_lakes/water_microbes/meta_analysis/results/revision/domian_genera_plot.pdf"
-# cairo_pdf(filename = plot.name, width = 7.6, height = 4.5, onefile = TRUE)
-# print(domian_genera_plot)
-# dev.off()
+ggsave(domian_genera_plot,
+       file = "E:/thermokast_lakes/water_microbes/meta_analysis/results/revision/domian_genera_plot11.pdf",
+       width = 7.6, height = 4.5, units = 'in', device='pdf', dpi=300)
+
+
 # Test the correlation between the relative abundance of dominant taxa and environmental variables
 outlierKD(test.dat, Abund)
 y
@@ -181,39 +181,6 @@ test.dat %>% pivot_longer(cols = -c(Abund), names_to = "env_name", values_to = '
   ylab('Relative abundance of abundant taxa (%)') +
   facet_wrap( ~ env_name, scales = 'free_x') +
   main_theme
-
-# other regression models
-source("https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression_plot.R")
-# linear model
-vars = c('MAP', 'MAT', 'pH', 'DOC', 'SUVA254', 'a320')
-plot_cor_df(
-  data = test.dat,
-  y.name = 'Abund',
-  x.names = vars,
-  method = "spearman",
-  ncol = 3)
-
-# quadratic model
-plot_poly_df(
-  data = test.dat,
-  y.name = 'Abund',
-  x.names = vars,
-  poly = 2,
-  ncol = 3)
-
-# generalized additive model
-plot_gam_df(
-  data = test.dat,
-  y.name = 'Abund',
-  x.names = vars,
-  k = 2,
-  ncol = 3)
-
-plot_loess_df(
-  data = test.dat,
-  y.name = 'Abund',
-  x.names = vars,
-  ncol = 3)
 
 # test the relationship between the relative abundance of Burkholderiales and DOM
 tax_env_table <- data.frame(tax_table(subphylo.rel)[, 4], otu_table(subphylo.rel)) %>% 

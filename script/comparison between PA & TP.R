@@ -121,9 +121,15 @@ NMDS_lefse_plots <- ggdraw() +
                   x = c(0, 0.5), y = c(1, 1))
 
 NMDS_lefse_plots 
-ggsave(NMDS_lefse_plots, 
-       file = "E:/thermokast_lakes/water_microbes/meta_analysis/results/figs/2022.08.23/NMDS_lefse11.pdf",
-       width = 8.9, height = 4.5, units = 'in', device='pdf', dpi=300)
+# ggsave(NMDS_lefse_plots, 
+#        file = "E:/thermokast_lakes/water_microbes/meta_analysis/results/figs/2022.08.23/NMDS_lefse11.pdf",
+#        width = 8.9, height = 4.5, units = 'in', device='pdf', dpi=300)
+
+
+
+
+
+
 
 
 # test the difference of alpha diversity between PA and TP

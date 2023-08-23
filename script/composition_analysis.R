@@ -44,6 +44,7 @@ meta_physeq
 #meta_physeq_rel = phyloseq::transform_sample_counts(meta_physeq, function(x){x / sum(x)})
 #phyloseq::otu_table(meta_physeq)[1:5, 1:5]
 meta_physeq_rel <- microbiome::transform(meta_physeq, "compositional")
+# transform_sample_counts(meta_physeq, function(x) x / sum(x))
 meta_table <- as(sample_data(meta_physeq), "data.frame")
 
 pa_phylo <- subset_samples(meta_physeq, Region == "Pan-Arctic")
@@ -84,8 +85,8 @@ pie_for_otu_num_phylum
 
 # determine the Order compositions within top 10 phyla
 arrange.tab <- function(phylo, N, taxrank, vect) {
-  subphylo <- tax_glom(phylo, taxrank)
-  subphylo.rel <- microbiome::transform(subphylo, "compositional")
+  phylo.rel <- transform_sample_counts(phylo, function(x) x / sum(x))
+  subphylo.rel <- tax_glom(phylo.rel, taxrank, NArm = F)
   ra.tab <- otu_table(subphylo.rel)
   MRA <- rowMeans(ra.tab)
   group <- tax_table(subphylo.rel)[,vect]
@@ -106,6 +107,7 @@ arrange.tab <- function(phylo, N, taxrank, vect) {
   top_N_tab$MRA = top_N_tab$MRA*100
   return(top_N_tab)
 }
+
 top10phylum_meta <- arrange.tab(meta_physeq, 10, 'Order', c(2,4))
 mra.tab_level1 = top10phylum_meta %>% group_by(level1) %>% 
   summarise(sum_MRA = sum(MRA)) %>% 
@@ -148,6 +150,21 @@ ra.tab <- otu_table(subphylo.rel)
 sum(ra.tab[, 1])
 subtaxa_tab <- tax_table(subphylo.rel)[, 4]
 
+order_tax_table <- data.frame(subtaxa_tab, ra.tab) %>% 
+  mutate(MRA = rowMeans(select(., colnames(ra.tab)))) %>%
+  arrange(desc(MRA)) %>% dplyr::top_n(15, MRA) %>%
+  select(., -c('MRA')) %>% 
+  bind_rows(summarise_all(., ~if(is.numeric(.)) 1-sum(.) else "Others")) %>%
+  mutate(Order = factor(Order, levels = Order)) %>%
+  pivot_longer(cols = -c(Order), names_to = "Sample_name", values_to = 'rel_abun') %>%
+  right_join(data.frame(Sample_name = rownames(metadata), Region = metadata$Region), by = c("Sample_name")) %>%
+  select(., -c('Sample_name')) %>% 
+  group_by(Region, Order) %>%
+  dplyr::summarise(across(, mean, na.rm = TRUE))
+
+print(order_tax_table, n = 32)
+# write.csv(order_tax_table, "E:/thermokast_lakes/water_microbes/meta_analysis/results/tables/order_tax_table.csv")
+# bar plot at the order level
 # set the plot theme
 mycols <- c("#d95f02", "#169e77", "#d3d93e", "#00718b", "#5F7FC7", "#CBD5ec", "#C0717C", "#5e738f", 
             "#CE50CA", "#74d944", "#ffc15c", "#89c5da", "#D7C1B1", "#689030", "#AD6F3B", "grey", 
@@ -169,21 +186,6 @@ main_theme = theme_linedraw() +
         legend.key = element_blank(),
         legend.background = element_rect(colour = "white"))
 
-order_tax_table <- data.frame(subtaxa_tab, ra.tab) %>% 
-  mutate(MRA = rowMeans(select(., colnames(ra.tab)))) %>%
-  arrange(desc(MRA)) %>% dplyr::top_n(15, MRA) %>%
-  select(., -c('MRA')) %>% 
-  bind_rows(summarise_all(., ~if(is.numeric(.)) 1-sum(.) else "Others")) %>%
-  mutate(Order = factor(Order, levels = Order)) %>%
-  pivot_longer(cols = -c(Order), names_to = "Sample_name", values_to = 'rel_abun') %>%
-  right_join(data.frame(Sample_name = rownames(metadata), Region = metadata$Region), by = c("Sample_name")) %>%
-  select(., -c('Sample_name')) %>% 
-  group_by(Region, Order) %>%
-  dplyr::summarise(across(, mean, na.rm = TRUE))
-
-print(order_tax_table, n = 32)
-# write.csv(order_tax_table, "E:/thermokast_lakes/water_microbes/meta_analysis/results/tables/order_tax_table.csv")
-# bar plot at the order level
 bar_plot <- order_tax_table %>%
   ggplot(aes(x = Region, y = 100*rel_abun, fill = Order))+
   geom_bar(stat = "identity") +
