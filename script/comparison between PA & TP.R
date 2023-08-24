@@ -54,7 +54,7 @@ par(mfrow = c(1, 1))
 
 # test the difference of the community structure between TP and PA
 #PERMANOVA analysis and NMDS plot
-meta.ord <- ordinate(meta_physeq, "NMDS", "bray")
+meta.ord <- ordinate(meta_physeq, "NMDS", "unifrac")
 meta.ord
 NMDS_plot <- plot_ordination(meta_physeq, meta.ord, type = "samples", color = "Region") + 
   geom_point(size = 2.5) + scale_color_manual(values = c("#d95f02", "#1b9e77")) + 
@@ -76,7 +76,7 @@ NMDS_plot <- plot_ordination(meta_physeq, meta.ord, type = "samples", color = "R
         legend.background = element_rect(colour = "white"))
 
 metadata <- as(sample_data(meta_physeq), "data.frame")
-adonis2(phyloseq::distance(meta_physeq, method = "bray") ~ Region,
+adonis2(phyloseq::distance(meta_physeq, method = "unifrac") ~ Region,
         data = metadata)
 
 #diff taxa using LEfSe with microeco package
@@ -121,8 +121,8 @@ NMDS_lefse_plots <- ggdraw() +
                   x = c(0, 0.5), y = c(1, 1))
 
 NMDS_lefse_plots 
-# ggsave(NMDS_lefse_plots, 
-#        file = "E:/thermokast_lakes/water_microbes/meta_analysis/results/figs/2022.08.23/NMDS_lefse11.pdf",
+# ggsave(NMDS_lefse_plots,
+#        file = "E:/thermokast_lakes/water_microbes/meta_analysis/results/figs/2022.08.23/NMDS_lefse.pdf",
 #        width = 8.9, height = 4.5, units = 'in', device='pdf', dpi=300)
 
 

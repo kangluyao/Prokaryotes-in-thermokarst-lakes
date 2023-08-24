@@ -43,13 +43,20 @@ library(randomForest)
 library(rfPermute)
 library(A3)
 env_div_rf <- env_div %>%
-  dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude', 'LCBD',  
+                  'MAT', 'MAP', 'DOC', 'SUVA254', 
+                  'a320', 'pH'))
 set.seed(123)
 out.rf <- a3(LCBD ~ . + 0, data = (env_div_rf)[3:9], randomForest, 
              model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
 out.rf
-meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
+meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:11], ntree = 999, num.rep = 999,
                           importance = TRUE, na.action = na.omit)
+## Show "importance" of variables: higher value mean more important:
+mean(meta.lcbd.rf$rf$rsq)
+sd(meta.lcbd.rf$rf$rsq)
+meta.lcbd.rf$pval
+
 impor.dat <-data.frame(variables = rownames(importance(meta.lcbd.rf)), 
                        IncMSE = importance(meta.lcbd.rf)[,1])
 library(dplyr)
@@ -134,13 +141,18 @@ Moran_residual_plot_NH <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 # random forest analysis for Tibetan Plateau
 env_div_rf_tp <- env_div %>%
   filter(Region == 'Tibetan Plateau') %>%
-  dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 
+                  'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
 out.rf.tp <- a3(LCBD ~ . + 0, data = (env_div_rf_tp)[3:9], randomForest, 
                 model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
 out.rf.tp
-tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
+tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_tp)[3:11], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
+## Show "importance" of variables: higher value mean more important:
+mean(tp.lcbd.rf$rf$rsq)
+sd(tp.lcbd.rf$rf$rsq)
+tp.lcbd.rf$pval
 
 impor.dat <- data.frame(variables = rownames(importance(tp.lcbd.rf)), 
                        IncMSE = importance(tp.lcbd.rf)[,1])
@@ -205,13 +217,18 @@ Moran_residual_plot_TP <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
 ## random forest analysis for Pan-Arctic
 env_div_rf_pa <- env_div %>%
   filter(Region == 'Pan-Arctic') %>%
-  dplyr::select(c('latitude', 'longitude', 'LCBD',  'MAT', 'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
+  dplyr::select(c('latitude', 'longitude','LCBD',  'MAT', 
+                  'MAP', 'DOC', 'SUVA254', 'a320', 'pH'))
 set.seed(123)
 out.rf.pa <- a3(LCBD ~ . + 0, data = (env_div_rf_pa)[3:9], randomForest, 
                 model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
 out.rf.pa
-pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
+pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_pa)[3:11], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
+## Show "importance" of variables: higher value mean more important:
+mean(pa.lcbd.rf$rf$rsq)
+sd(pa.lcbd.rf$rf$rsq)
+pa.lcbd.rf$pval
 
 impor.dat <-data.frame(variables = rownames(importance(pa.lcbd.rf)), 
                        IncMSE = importance(pa.lcbd.rf)[,1])
@@ -272,18 +289,7 @@ model.spatial <- spatialRF::rf_spatial(
 )
 #shows the Moran’s I of the residuals of the spatial model
 Moran_residual_plot_PA <- spatialRF::plot_moran(model.spatial, verbose = FALSE)
-## Show "importance" of variables: higher value mean more important:
-mean(meta.lcbd.rf$rf$rsq)
-sd(meta.lcbd.rf$rf$rsq)
-meta.lcbd.rf$pval
 
-mean(tp.lcbd.rf$rf$rsq)
-sd(tp.lcbd.rf$rf$rsq)
-tp.lcbd.rf$pval
-
-mean(pa.lcbd.rf$rf$rsq)
-sd(pa.lcbd.rf$rf$rsq)
-pa.lcbd.rf$pval
 ## combine plots
 rf_plot <- cowplot::plot_grid(impor_meta_plot, impor_tp_plot, impor_pa_plot,
                               labels = c('A', 'B', 'C'), ncol = 3, 
