@@ -2,7 +2,7 @@
 
 > This project repository associated with the following manuscripts:
 
-* Kang Luyao, Chen Leiyi, Li Ziliang, Wang Jianjun, Xue Kai, Deng Ye, Delgado-Baquerizo Manuel, Yang Yuanhe (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across permafrost regions in the Northern Hemisphere. (**in revision**). 
+* Kang Luyao, Chen Leiyi, Li Ziliang, Wang Jianjun, Xue Kai, Deng Ye, Delgado-Baquerizo Manuel, Yang Yuanhe* (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across Northern Hemisphere permafrost regions. (**in revision**). 
 
 ## Structure
 
