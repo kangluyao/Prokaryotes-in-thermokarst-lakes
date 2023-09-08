@@ -2,7 +2,7 @@
 
 > This project repository associated with the following manuscripts:
 
-* Kang Luyao, Chen Leiyi, Li Ziliang, Wang Jianjun, Xue Kai, Deng Ye, Delgado-Baquerizo Manuel, Yang Yuanhe* (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across Northern Hemisphere permafrost regions. (**in revision**). 
+* Luyao Kang, Leiyi Chen, Ziliang Li, Jianjun Wang, Kai Xue, Ye Deng, Manuel Delgado-Baquerizo, Yutong Song, Dianye Zhang, Guibiao Yang, Wei Zhou, Xuning Liu, Futing Liu and Yuanhe Yang* (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across the Northern Hemisphere. (**in revision**). 
 
 ## Structure
 
@@ -17,10 +17,10 @@
         ├── taxonomy.txt                    <-- taxonomimc table file
         └── sample_data.txt                 <-- environmental table file
 └── script
-    ├── composition_analysis.R              <-- codes for taxonomic compositional analysis
-    ├── comparison between PA & TP.R        <-- codes for comparison analysis between pan-Arctic and Tibetan Plateau
-    ├── cor_DOM_taxa_fun.R                  <-- test the relationship between the dominant taxa and DOM properties
-    ├── LCBD_analysis.R                     <-- codes for LCBD analysis
-    └── FARPROTAX.R                         <-- codes for functional groups analysis
+    ├── 1_composition_analysis.R            <-- codes for taxonomic compositional analysis
+    ├── 2_cor_DOM_taxa_fun.R                <-- test the relationship between the dominant taxa and DOM properties
+    ├── 3_comparison between PA & TP.R      <-- codes for comparison analysis between pan-Arctic and Tibetan Plateau
+    ├── 4_LCBD_analysis.R                   <-- codes for LCBD analysis
+    └── 5_FARPROTAX.R                       <-- codes for functional groups analysis
 
 ```
