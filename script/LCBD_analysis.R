@@ -1,7 +1,4 @@
 # Loading packages
-library(lme4)
-library(lmerTest)
-library(multcomp)
 library(ggplot2)
 library(tidyverse)
 library(adespatial)
