@@ -1,36 +1,12 @@
-# correlation between diversity and environmental variables
+# Loading packages
 library(lme4)
 library(lmerTest)
 library(multcomp)
 library(ggplot2)
 library(tidyverse)
-##################################################
-# linear and quadratic relationship between alpha diveristy and environmental factors
-source('https://raw.githubusercontent.com/kangluyao/source_R/main/multivariables_regression.R')
-
-# transform or scale the data
-meta_diversity$Chao1 = log(meta_diversity$Chao1)
-meta_diversity$Shannon = meta_diversity$Shannon
-meta_diversity$Simpson = log(meta_diversity$Simpson + 1)
-meta_diversity <- meta_diversity %>% 
-  mutate_at(c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH'), funs(c(scale(.))))
-
-diver_table <- meta_diversity[ ,c("Chao1", "Shannon", "Simpson")]
-substrate_table <- meta_diversity[ ,c('DOC', 'SUVA254', 'a320', 'MAP', 'MAT', 'pH')]
-
-# linear mixed model
-lmm.matrix <- lmm.mat.cal(diver_table, substrate_table, meta_diversity)
-lmm.matrix
-
-# quadratic mixed model
-lmm.quadr.matrix <- lmm.quadr.mat.cal(diver_table, substrate_table, meta_diversity)
-lmm.quadr.matrix
-
-
-#####################################################
-# test the relationship between LCBD and MAP across the Northern Hemisphere
 library(adespatial)
-## total community
+#####################################################
+## Determine the LCBD of total community
 beta_meta_div <- beta.div(t(as.matrix(otu_table(meta_physeq))), 
                           method = "hellinger", sqrt.D = FALSE, samp = TRUE, 
                           nperm = 999, adj = TRUE, save.D = FALSE, clock = FALSE)
@@ -48,9 +24,10 @@ env_div_rf <- env_div %>%
                   'a320', 'pH'))
 set.seed(123)
 out.rf <- a3(LCBD ~ . + 0, data = (env_div_rf)[3:9], randomForest, 
-             model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
+             model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001) # It took about 2 hours on a 12-core laptop 
 out.rf
-meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:11], ntree = 999, num.rep = 999,
+
+meta.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf)[3:9], ntree = 999, num.rep = 999,
                           importance = TRUE, na.action = na.omit)
 ## Show "importance" of variables: higher value mean more important:
 mean(meta.lcbd.rf$rf$rsq)
@@ -79,7 +56,8 @@ impor_meta_plot <- impor.dat %>%
         legend.text = element_text(size = 12),
         legend.position = c(0.6, 0.75)) +
   coord_flip()
-
+impor_meta_plot
+# test the relationship between LCBD and MAP across the Northern Hemisphere
 meta_lcbd_map <- ggplot(env_div, aes(MAP, LCBD)) +
   geom_point(aes(color = Sitegroup), size = 1, alpha = 0.8)+
   scale_color_manual(values = c("#a58aff", '#c49a00', '#c6dfed', 
@@ -147,7 +125,7 @@ set.seed(123)
 out.rf.tp <- a3(LCBD ~ . + 0, data = (env_div_rf_tp)[3:9], randomForest, 
                 model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
 out.rf.tp
-tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_tp)[3:11], ntree = 999, num.rep = 999,
+tp.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_tp)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 ## Show "importance" of variables: higher value mean more important:
 mean(tp.lcbd.rf$rf$rsq)
@@ -223,7 +201,7 @@ set.seed(123)
 out.rf.pa <- a3(LCBD ~ . + 0, data = (env_div_rf_pa)[3:9], randomForest, 
                 model.args = list(ntree = 999, num.rep = 999), p.acc = 0.001)
 out.rf.pa
-pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_pa)[3:11], ntree = 999, num.rep = 999,
+pa.lcbd.rf <- rfPermute(LCBD ~ ., data = (env_div_rf_pa)[3:9], ntree = 999, num.rep = 999,
                      importance = TRUE, na.action = na.omit)
 ## Show "importance" of variables: higher value mean more important:
 mean(pa.lcbd.rf$rf$rsq)
