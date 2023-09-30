@@ -1,8 +1,8 @@
 # Prokaryotes in thermokarst lakes
 
-> This project repository associated with the following manuscripts:
+> This project repository associated with the following manuscript:
 
-* Luyao Kang, Leiyi Chen, Ziliang Li, Jianjun Wang, Kai Xue, Ye Deng, Manuel Delgado-Baquerizo, Yutong Song, Dianye Zhang, Guibiao Yang, Wei Zhou, Xuning Liu, Futing Liu and Yuanhe Yang* (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across the Northern Hemisphere. (**in revision**). 
+* Luyao Kang, Leiyi Chen, Ziliang Li, Jianjun Wang, Kai Xue, Ye Deng, Manuel Delgado-Baquerizo, Yutong Song, Dianye Zhang, Guibiao Yang, Wei Zhou, Xuning Liu, Futing Liu and Yuanhe Yang* (2023). Patterns and drivers of prokaryotic communities in thermokarst lake water across Northern Hemisphere. (http://doi.org/10.1111/geb.13764 ). 
 
 ## Structure
 
