@@ -14,7 +14,7 @@
         └── thermokarst-lakes-table.qza     <-- otutable output from qiime2
     └── meta_data                           <-- relevant data necessary for reproducing results
         ├── meta_otu_table.txt              <-- otu table file
-        ├── taxonomy.txt                    <-- taxonomimc table file
+        ├── taxonomy.txt                    <-- taxonomic table file
         └── sample_data.txt                 <-- environmental table file
 └── script
     ├── 1_composition_analysis.R            <-- codes for taxonomic compositional analysis
